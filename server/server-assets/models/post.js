@@ -2,7 +2,8 @@ let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
 let schemaName = 'Post'
-// let Comment = require('../models/comment')
+
+let Comment = require('./comment.js')
 
 
 let rating = new Schema({
@@ -26,10 +27,9 @@ let schema = new Schema({
 }, { timestamps: true })
 
 schema.pre('remove', function (next) {
-  this._id
+  // @ts-ignore
   Promise.all([
-    // @ts-ignore
-    // Comment.deleteMany({ postId: this._id })
+    Comment.deleteMany({ postId: this._id })
   ])
     .then(() => next())
     .catch(err => next(err))

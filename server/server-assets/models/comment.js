@@ -8,7 +8,8 @@ let schema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   postId: { type: ObjectId, ref: "Post", required: true },
-  creatorId: { type: ObjectId, ref: "User" }
+  creatorId: { type: ObjectId, ref: "User" },
+  albumId: { type: ObjectId, ref: 'Album' }
 }, { timestamps: true, usePushEach: true })
 
 
