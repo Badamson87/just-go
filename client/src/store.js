@@ -18,13 +18,16 @@ let api = Axios.create ({
 
 export default new Vuex.Store({
   state: {
-    user: {}
+    user: {}, 
+    albums: [], 
 
   },
+
   mutations: {
 setUser(state, user) {
   state.user = user
-}
+}, 
+
   },
   actions: {
     // auth 
