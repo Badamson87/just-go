@@ -20,7 +20,7 @@ router.post('/:albumId', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
   Post.findById(req.params.id)
     .then(post => {
-      if (!post.authorId.equals(req.session.uid)) {
+      if (!post.creatorId.equals(req.session.uid)) {
         return res.status(401).send("Access Denied!")
       }
       post.remove(err => {
@@ -38,7 +38,7 @@ router.delete('/:id', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
   Post.findById(req.params.id)
     .then(post => {
-      if (!post.authorId.equals(req.session.uid)) {
+      if (!post.creatorId.equals(req.session.uid)) {
         return res.status(401).send("Access Denied!")
       }
       post.update(req.body, (err) => {
@@ -73,6 +73,13 @@ router.get('/:id', (req, res, next) => {
 // Get all posts
 router.get('/', (req, res, next) => {
   Post.find({})
+    .then(data => {
+      res.send(data)
+    })
+    .catch(err => {
+      console.log(err)
+      next()
+    })
 })
 
 

@@ -46,8 +46,8 @@ server.use((req, res, next) => {
 let albumRoutes = require('./server-assets/routes/album')
 server.use('/api/albums', albumRoutes)
 
-// let commentRoutes = require('./server-assets/routes/comment')
-// server.use('/api/comments', commentRoutes)
+let commentRoutes = require('./server-assets/routes/comment')
+server.use('/api/comments', commentRoutes)
 
 let postRoutes = require('./server-assets/routes/post')
 server.use('/api/posts', postRoutes)
