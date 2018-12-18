@@ -20,7 +20,7 @@ let schema = new Schema({
   title: { type: String, required: true },
   description: { type: String },
   ratings: [rating],
-  // image: { type: String, required: true },
+  image: { type: String, required: true },
   creatorId: { type: ObjectId, ref: "User", required: true },
   flags: [flag],
   location: { type: String, required: true }
