@@ -46,11 +46,11 @@ server.use((req, res, next) => {
 let albumRoutes = require('./server-assets/routes/album')
 server.use('/api/albums', albumRoutes)
 
-// let listRoutes = require('./server-assets/routes/list')
-// server.use('/api/lists', listRoutes)
+// let commentRoutes = require('./server-assets/routes/comment')
+// server.use('/api/comments', commentRoutes)
 
-// let taskRoutes = require('./server-assets/routes/task')
-// server.use('/api/tasks', taskRoutes)
+let postRoutes = require('./server-assets/routes/post')
+server.use('/api/posts', postRoutes)
 
 
 //Catch all
