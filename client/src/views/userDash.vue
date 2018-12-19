@@ -10,6 +10,7 @@
         <PostForm></PostForm>
       </div>
     </div>
+    <h5>My Albums</h5>
     <Albums></Albums>
   </div>
 </template>
