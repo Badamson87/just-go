@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-
+    {{activeAlbum}}
   </div>
 </template>
 
@@ -9,14 +9,21 @@
     name: 'album',
     data() {
       return {
-
+        
       }
     },
     mounted(){
      return this.$store.dispatch('getPostsByAlbumId', this.albumId)
     },
-    computed: {},
-    methods: {},
+    computed: {
+      activeAlbum() {
+        return this.$store.state.activeAlbum
+      }
+
+    },
+    methods: {
+
+    },
     props: ["albumId"]
   }
 

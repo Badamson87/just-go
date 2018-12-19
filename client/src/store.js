@@ -21,7 +21,8 @@ export default new Vuex.Store({
     user: {},
     albums: [],
     post: {},
-    posts: []
+    posts: [],
+    activeAlbum: {}
   },
 
   mutations: {
@@ -36,6 +37,9 @@ export default new Vuex.Store({
     },
     setPosts(state, posts) {
       state.posts = posts
+    },
+    setActiveAlbum(state, activeAlbum) {
+      state.activeAlbum = activeAlbum
     }
 
   },
@@ -67,7 +71,7 @@ export default new Vuex.Store({
       api.get("posts/album/" + albumId)
         .then(res => {
           console.log('Posts by album', res.data)
-          // commit('setPosts', res.data)
+          commit('setActiveAlbum', res.data)
           // router.push({name:'album'})
         })
     },
