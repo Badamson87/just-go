@@ -24,7 +24,8 @@ let schema = new Schema({
   creatorId: { type: ObjectId, ref: "User", required: true },
   flags: [flag],
   location: { type: String, required: true },
-  albumId: { type: ObjectId, ref: "Album", required: true }
+  albumId: { type: ObjectId, ref: "Album", required: true },
+  isPrivate: { type: Boolean, required: true, default: false },
 }, { timestamps: true })
 
 schema.pre('remove', function (next) {

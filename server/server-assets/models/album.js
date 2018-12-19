@@ -11,6 +11,7 @@ let schema = new Schema({
   created: { type: Number, required: true, default: Date.now() },
   authorId: { type: ObjectId, ref: 'User', required: true },
   posts: [{ type: ObjectId, ref: 'Post' }],
+  isPrivate: { type: Boolean, required: true, default: false },
   // isBucketlist: {
   //   type: Boolean, required: true, default: false
   // }
