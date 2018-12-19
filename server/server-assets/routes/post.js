@@ -83,6 +83,33 @@ router.get('/', (req, res, next) => {
 })
 
 
+// Get a post by Id
+router.get('/:id', (req, res, next) => {
+  Post.findById(req.params.id)
+    .then(data => {
+      res.send(data)
+    })
+    .catch(err => {
+      console.log(err)
+      next()
+    })
+})
+
+
+// Get a post by Album Id
+router.get('/album/:id', (req, res, next) => {
+  Post.find({ albumId: req.params.id })
+    .then(data => {
+      res.send(data)
+    })
+    .catch(err => {
+      console.log(err)
+      next()
+    })
+})
+
+
+
 // add a clone
 
 // router.post('/clone', (req, res, next) => {
