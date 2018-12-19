@@ -4,7 +4,7 @@
         <form @submit.prevent="createPost">
           <div class="form-group">
 
-            <label for="selectedAlbum" placeholder="Album Name"></label>
+            <label for="selectedAlbum"></label>
             
             <select class="form-control" v-model="formData.albumId" id="selectedAlbum" >
               <option v-for="album in albums" :key="albums._id" v-bind:value="album._id">{{album.title}}</option>
@@ -14,8 +14,8 @@
             <input class="form-control" type="text" placeholder="Location" v-model="formData.location">
             <!-- goelocation?? -->
             <input class="form-control" type="text" placeholder="Description" v-model="formData.description">
-            <input class="form-control" type="file" id="avatar" name="avatar" accept="image/*" v-on="formData.image">
-           
+            <!-- change back to type=file and then use base 64 encoding accept="image/*"  -->
+            <input class="form-control" type="text" v-model="formData.image" placeholder="Image URL">
             <button type="submit" class="btn btn-danger">Create</button>
           </div>
         </form>

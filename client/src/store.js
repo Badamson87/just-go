@@ -47,11 +47,13 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res.data)
           commit("setPost", res.data)
+          // dispatch('getAlbums')
+          
 
         })
     },
     getPosts({ commit, dispatch }, albumId) {
-      api.get('posts/' + albumId)
+      api.get('album' + albumId)
         .then(res => {
 
         })
