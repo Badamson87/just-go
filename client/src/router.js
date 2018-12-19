@@ -30,9 +30,10 @@ export default new Router({
     },
 
     {
-      path: '/album',
+      path: '/album/:albumId',
       name: 'album',
-      component: Album
+      component: Album,
+      props: true
     },
     {
       path: '/post',

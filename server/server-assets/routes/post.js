@@ -27,6 +27,7 @@ router.delete('/:id', (req, res, next) => {
       post.remove(err => {
         if (err) {
           console.log(err)
+          res.status(400).send(err)
           next()
           return
         }
@@ -45,6 +46,7 @@ router.put('/:id', (req, res, next) => {
       post.update(req.body, (err) => {
         if (err) {
           console.log(err)
+          res.status(400).send(err)
           next()
           return
         }
@@ -53,6 +55,7 @@ router.put('/:id', (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
+      res.status(400).send(err)
       next()
     })
 })
@@ -66,6 +69,7 @@ router.get('/:id', (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
+      res.status(400).send(err)
       next()
     })
 })
@@ -79,6 +83,7 @@ router.get('/', (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
+      res.status(400).send(err)
       next()
     })
 })
@@ -92,6 +97,7 @@ router.get('/:id', (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
+      res.status(400).send(err)
       next()
     })
 })
@@ -105,6 +111,7 @@ router.get('/album/:id', (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
+      res.status(400).send(err)
       next()
     })
 })
@@ -118,6 +125,7 @@ router.post('/clone', (req, res, next) => {
     .exec((err, post) => {
       if (err) {
         console.log(err)
+        res.status(400).send(err)
         next()
       }
       let clone = post
@@ -128,6 +136,7 @@ router.post('/clone', (req, res, next) => {
       clone.save(err => {
         if (err) {
           console.log(err)
+          res.status(400).send(err)
           next()
         }
         res.send(clone)
