@@ -51,6 +51,13 @@ export default new Vuex.Store({
 
         })
     },
+    getAllPosts({ commit, dispatch }) {
+      api.get('posts/')
+        .then(res => {
+          console.log(res)
+        })
+    },
+
 
 
 

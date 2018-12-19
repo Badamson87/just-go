@@ -6,7 +6,7 @@
         <h1>All Posts</h1>
         <div class="row d-flex justify-content-around align-items-end">
           <div class="col-12">
-            <div v-for="post in posts" class="col-2" :key="post._id">
+            <div v-for="post in posts" class="col-2">
 
             </div>
           </div>
@@ -25,6 +25,9 @@
       return {
 
       }
+    },
+    mounted() {
+      this.$store.dispatch("getAllPosts")
     },
     computed: {
       posts() {
