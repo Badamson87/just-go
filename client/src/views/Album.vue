@@ -1,5 +1,5 @@
 <template>
-  <div class="album container-fluid">
+  <div class="container-fluid">
 
   </div>
 </template>
@@ -12,8 +12,12 @@
 
       }
     },
+    mounted(){
+     return this.$store.dispatch('getPostsByAlbumId', this.albumId)
+    },
     computed: {},
-    methods: {}
+    methods: {},
+    props: ["albumId"]
   }
 
 </script>

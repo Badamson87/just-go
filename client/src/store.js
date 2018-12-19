@@ -47,16 +47,14 @@ export default new Vuex.Store({
           console.log(res.data)
           commit("setPost", res.data)
           // dispatch('getAlbums')
-          
-
+          dispatch("editAlbum", res.data.data.albumId)
         })
     },
-    getPosts({ commit, dispatch }, albumId) {
-      api.get('album' + albumId)
-        .then(res => {
-
-        })
-    },
+    // getPosts({ commit, dispatch }, albumId) {
+    //   api.get('album/' + albumId)
+    //     .then(res => {
+    //     })
+    // },
     getAllPosts({ commit, dispatch }) {
       api.get('posts/')
         .then(res => {
@@ -64,7 +62,16 @@ export default new Vuex.Store({
           commit('setPosts', res.data)
         })
     },
-
+    //get post by album id
+    getPostsByAlbumId({commit, dispatch}, albumId){
+      api.get("posts/album/" + albumId)
+      .then(res => {
+        console.log('Posts by album', res.data)
+        // commit('setPosts', res.data)
+        // router.push({name:'album'})
+      })
+    },
+    
 
     //albums
     getAlbums({ commit, dispatch }, authorId) {

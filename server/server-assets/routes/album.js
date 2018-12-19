@@ -26,6 +26,7 @@ router.delete('/:id', (req, res, next) => {
       album.remove(err => {
         if (err) {
           console.log(err)
+          res.status(400).send(err)
           next()
           return
         }
@@ -36,7 +37,6 @@ router.delete('/:id', (req, res, next) => {
 
 
 // Edit an album
-
 router.put('/:id', (req, res, next) => {
   Albums.findById(req.params.id)
     .then(album => {
@@ -46,6 +46,7 @@ router.put('/:id', (req, res, next) => {
       album.update(req.body, (err) => {
         if (err) {
           console.log(err)
+          res.status(400).send(err)
           next()
           return
         }
@@ -54,10 +55,10 @@ router.put('/:id', (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
+      res.status(400).send(err)
       next()
     })
 })
-
 
 
 // Get album by Id
@@ -66,6 +67,7 @@ router.get('/:id', (req, res, next) => {
     .populate('posts').exec((err, newAlbum) => {
       if (err) {
         next(err)
+        res.status(400).send(err)
         return
       }
       res.send(newAlbum)
@@ -88,6 +90,7 @@ router.get('/user/:authorId', (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
+      res.status(400).send(err)
       next()
     })
 })
