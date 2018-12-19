@@ -1,6 +1,19 @@
 <template>
   <div class="container-fluid">
-    {{activeAlbum}}
+    <div class="row">
+    
+          <div v-for="post in activeAlbum" class="col-3 my-3">
+              <div class="card ">
+                <p>{{post.title}}</p>
+                <p>{{post.image}}</p>
+                <p>{{post.description}}</p>
+
+              </div>
+          
+
+        
+      </div>
+    </div>
   </div>
 </template>
 
