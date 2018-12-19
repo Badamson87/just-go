@@ -12,9 +12,9 @@ let schema = new Schema({
   authorId: { type: ObjectId, ref: 'User', required: true },
   posts: [{ type: ObjectId, ref: 'Post' }],
   isPrivate: { type: Boolean, required: true, default: false },
-  // isBucketlist: {
-  //   type: Boolean, required: true, default: false
-  // }
+  isBucketlist: {
+    type: Boolean, required: true, default: false
+  }
 })
 
 schema.pre('remove', function (next) {
