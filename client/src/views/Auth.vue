@@ -5,6 +5,7 @@
         <input type="email" v-model="creds.email" placeholder="email">
         <input type="password" v-model="creds.password" placeholder="password">
         <button type="submit" class="btn btn-info btn-sm">Login</button>
+       
       </form>
       <form v-else @submit.prevent="register" class="loginMargin loginBox">
         <input type="text" v-model="newUser.name" placeholder="name">
@@ -43,11 +44,15 @@
       register() {
         this.$store.dispatch("register", this.newUser);
       },
+
       loginUser() {
         this.$store.dispatch("login", this.creds);
-      }
+      },
+
+     
     
-    }
+    }, 
+
   }
 
 </script>

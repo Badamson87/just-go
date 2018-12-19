@@ -20,16 +20,67 @@ export default new Vuex.Store({
   state: {
     user: {}, 
     albums: [], 
-
+    post: {}
   },
 
   mutations: {
 setUser(state, user) {
   state.user = user
 }, 
+setAlbums(state, albums){
+  state.albums= albums
+},
+setPost(state, post){
+  state.post= post
+}
 
   },
   actions: {
+    //posts
+    createPost({commit, dispatch}, formData){
+      debugger
+      api.post('posts', formData)
+      .then(res => {
+        console.log(res.data)
+        
+      })
+    },
+    getPosts({commit, dispatch}, albumId){
+      api.get('posts/' + albumId)
+      .then(res=> {
+
+      })
+    },
+
+
+
+
+    //albums
+    getAlbums({commit, dispatch}, authorId){
+      api.get('albums/user/' + authorId)
+      .then(res => {
+        console.log('albums: ', res)
+        commit('setAlbums', res.data)
+      })
+    },
+    addAlbum({commit, dispatch}, albumData){
+      api.post('albums', albumData)
+      .then(res => {
+        debugger
+        // commit('setAlbums', res.data)
+        dispatch('getAlbums', res.data.authorId)
+      })
+    },
+    editAlbum({commit, dispatch}, albumId){
+      api.put('albums/' + albumId)
+      .then(res=> {
+        commit('setAlbums', res.data)
+        dispatch('getAlbums', res.data.authorId)
+      })
+    },
+
+    
+
     // auth 
     register ({commit, dispatch}, newUser) {
       auth.post('register', newUser) 
@@ -42,6 +93,7 @@ setUser(state, user) {
       auth.get('authenticate')
       .then(res => {
         commit('setUser', res.data)
+        dispatch('getAlbums', res.data._id)
       })
       .catch(err => {
         console.err('Please Login')
@@ -52,6 +104,7 @@ setUser(state, user) {
       auth.post('login', creds)
       .then(res => {
         commit('setUser', res.data)
+        dispatch('getAlbums', res.data._id)
         router.push({name: 'userDash'})
       })
     },
@@ -61,6 +114,8 @@ setUser(state, user) {
         router.push({name: 'home'})
       })
     }
+
+  
 
   }
 })

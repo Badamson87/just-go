@@ -10,6 +10,8 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="#/auth">Login/Register</a>
+      <!-- <a v-else="user._id" @click="logout" class="nav-link" href="#/">Logout</a> -->
+
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -22,6 +24,15 @@
     <router-view/>
   </div>
 </template>
+
+<!-- <script>
+  export default{
+methods: {
+    logout() {
+      this.$store.dispatch("logout")
+    }
+  }}
+  </script> -->
 
 <style>
 #app {

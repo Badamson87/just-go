@@ -1,6 +1,6 @@
 <template>
-  <div class="userDash" >
-    <h1>This is the userDash</h1>
+  <div class="userDash container-fluid" >
+    <h1>Welcome to your Dashboard</h1>
     <div class="row">
       <div class="col-5">
         <UserInfo></UserInfo>
@@ -10,7 +10,8 @@
         <PostForm></PostForm>
       </div>
     </div>
-  </div>
+      <Albums></Albums>
+    </div>
 </template>
 
 
@@ -18,6 +19,7 @@
 import AlbumForm from '@/components/UserDash/createAlbum.vue'
 import PostForm from '@/components/UserDash/createPost.vue'
 import UserInfo from '@/components/UserDash/userInfo.vue'
+import Albums from '@/components/albums.vue'
   export default {
     name: 'userDash',
     data() {
@@ -26,11 +28,11 @@ import UserInfo from '@/components/UserDash/userInfo.vue'
       }
     },
     computed: {},
-    methods: {}, 
     components: {
       AlbumForm,
       PostForm, 
-      UserInfo
+      UserInfo, 
+      Albums
     }
   }
 
