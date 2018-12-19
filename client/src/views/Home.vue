@@ -7,11 +7,10 @@
         <div class="row d-flex justify-content-around align-items-end">
           <div class="col-12">
             <div v-for="post in posts" class="col-2">
-              {{post.title}}
+              {{post.title}}{{post.image}}
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -31,7 +30,6 @@
     },
     computed: {
       posts() {
-        debugger
         return this.$store.state.posts
       }
     },

@@ -42,7 +42,6 @@ export default new Vuex.Store({
   actions: {
     //posts
     createPost({ commit, dispatch }, formData) {
-      debugger
       api.post('posts', formData)
         .then(res => {
           console.log(res.data)
