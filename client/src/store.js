@@ -34,7 +34,7 @@ export default new Vuex.Store({
     setPost(state, post) {
       state.post = post
     },
-    setPosts(state, posts){
+    setPosts(state, posts) {
       state.posts = posts
     }
 
@@ -42,7 +42,6 @@ export default new Vuex.Store({
   actions: {
     //posts
     createPost({ commit, dispatch }, formData) {
-      debugger
       api.post('posts', formData)
         .then(res => {
           console.log(res.data)
@@ -62,6 +61,7 @@ export default new Vuex.Store({
       api.get('posts/')
         .then(res => {
           console.log(res)
+          commit('setPosts', res.data)
         })
     },
 
