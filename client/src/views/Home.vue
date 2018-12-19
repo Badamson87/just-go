@@ -4,10 +4,18 @@
     <div class="row">
       <div class="col-12">
         <h1>All Posts</h1>
-        <div class="row d-flex justify-content-around align-items-end">
-          <div class="col-12">
-            <div v-for="post in posts" class="col-2">
-              {{post.title}}{{post.image}}
+        <div class="row">
+          <div class="allPosts col-12">
+            <div v-for="post in posts" class="col-3 my-3">
+              <div class="card">
+                <div class="card-body borderBox">
+                  <h5>{{post.title}}</h5>
+                  <img class="card-img-top" :src="post.image">
+
+                  <p class="card-text">{{post.rating}}</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -38,7 +46,15 @@
 
 </script>
 
-<style>
+<style scoped>
+  .allPosts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-
+  .borderBox {
+    border: black solid 1px;
+    box-shadow: 10px 10px 10px
+  }
 </style>
