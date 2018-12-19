@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// @ts-ignore
 import Home from './views/Home.vue'
+// @ts-ignore
 import Auth from './views/Auth.vue'
+// @ts-ignore
 import Album from './views/Album.vue'
+// @ts-ignore
 import Post from './views/Post.vue'
+// @ts-ignore
 import userDash from './views/userDash.vue'
 
 Vue.use(Router)
@@ -24,24 +29,24 @@ export default new Router({
       component: Auth
     },
 
-   {
-     path: '/album',
-     name: 'album',
-     component: Album
-   },
-   {
-     path: '/post',
-     name: 'post',
-     component: Post
-   },
-   {
-     path: '/userDash',
-     name: 'userDash',
-     component: userDash
-   },
-   {
-   path: "*",
-   redirect: '/'
-   }
+    {
+      path: '/album',
+      name: 'album',
+      component: Album
+    },
+    {
+      path: '/post',
+      name: 'post',
+      component: Post
+    },
+    {
+      path: '/userDash',
+      name: 'userDash',
+      component: userDash
+    },
+    {
+      path: "*",
+      redirect: '/'
+    }
   ]
 })

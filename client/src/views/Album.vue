@@ -1,12 +1,12 @@
 <template>
-  <div class="">
+  <div class="album container-fluid">
 
   </div>
 </template>
 
 <script>
   export default {
-    name: '',
+    name: 'album',
     data() {
       return {
 

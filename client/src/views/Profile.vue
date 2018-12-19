@@ -1,12 +1,12 @@
 <template>
-  <div class="">
+  <div class="profile container-fluid">
 
   </div>
 </template>
 
 <script>
   export default {
-    name: '',
+    name: 'profile',
     data() {
       return {
 

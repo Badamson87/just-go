@@ -1,121 +1,121 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router from './router' 
+import router from './router'
 import Axios from 'axios'
 
 Vue.use(Vuex)
 
-let auth = Axios.create ({
+let auth = Axios.create({
   baseURL: '//localhost:3000/auth/',
-  timeout:6000,
+  timeout: 6000,
   withCredentials: true
 })
-let api = Axios.create ({
+let api = Axios.create({
   baseURL: '//localhost:3000/api/',
-  timeout:6000,
-  withCredentials:true
+  timeout: 6000,
+  withCredentials: true
 })
 
 export default new Vuex.Store({
   state: {
-    user: {}, 
-    albums: [], 
+    user: {},
+    albums: [],
     post: {}
   },
 
   mutations: {
-setUser(state, user) {
-  state.user = user
-}, 
-setAlbums(state, albums){
-  state.albums= albums
-},
-setPost(state, post){
-  state.post= post
-}
+    setUser(state, user) {
+      state.user = user
+    },
+    setAlbums(state, albums) {
+      state.albums = albums
+    },
+    setPost(state, post) {
+      state.post = post
+    }
 
   },
   actions: {
     //posts
-    createPost({commit, dispatch}, formData){
+    createPost({ commit, dispatch }, formData) {
       debugger
       api.post('posts', formData)
-      .then(res => {
-        console.log(res.data)
-        
-      })
-    },
-    getPosts({commit, dispatch}, albumId){
-      api.get('posts/' + albumId)
-      .then(res=> {
+        .then(res => {
+          console.log(res.data)
 
-      })
+        })
+    },
+    getPosts({ commit, dispatch }, albumId) {
+      api.get('posts/' + albumId)
+        .then(res => {
+
+        })
     },
 
 
 
 
     //albums
-    getAlbums({commit, dispatch}, authorId){
+    getAlbums({ commit, dispatch }, authorId) {
       api.get('albums/user/' + authorId)
-      .then(res => {
-        console.log('albums: ', res)
-        commit('setAlbums', res.data)
-      })
+        .then(res => {
+          console.log('albums: ', res)
+          commit('setAlbums', res.data)
+        })
     },
-    addAlbum({commit, dispatch}, albumData){
+    addAlbum({ commit, dispatch }, albumData) {
       api.post('albums', albumData)
-      .then(res => {
-        debugger
-        // commit('setAlbums', res.data)
-        dispatch('getAlbums', res.data.authorId)
-      })
+        .then(res => {
+          debugger
+          // commit('setAlbums', res.data)
+          dispatch('getAlbums', res.data.authorId)
+        })
     },
-    editAlbum({commit, dispatch}, albumId){
+    editAlbum({ commit, dispatch }, albumId) {
       api.put('albums/' + albumId)
-      .then(res=> {
-        commit('setAlbums', res.data)
-        dispatch('getAlbums', res.data.authorId)
-      })
+        .then(res => {
+          commit('setAlbums', res.data)
+          dispatch('getAlbums', res.data.authorId)
+        })
     },
 
-    
+
 
     // auth 
-    register ({commit, dispatch}, newUser) {
-      auth.post('register', newUser) 
-      .then(res => {
-        commit('setUser', res.data)
-        router.push({name: 'userDash'})
-      })
-    } ,
-    authenticate ({commit, dispatch }) {
+    register({ commit, dispatch }, newUser) {
+      auth.post('register', newUser)
+        .then(res => {
+          commit('setUser', res.data)
+          router.push({ name: 'userDash' })
+        })
+    },
+    authenticate({ commit, dispatch }) {
       auth.get('authenticate')
-      .then(res => {
-        commit('setUser', res.data)
-        dispatch('getAlbums', res.data._id)
-      })
-      .catch(err => {
-        console.err('Please Login')
-        router.push({name: 'auth'})
-      })
+        .then(res => {
+          commit('setUser', res.data)
+          dispatch('getAlbums', res.data._id)
+        })
+        .catch(err => {
+          console.error('Please Login')
+          router.push({ name: 'auth' })
+        })
     },
-    login({commit, dispatch}, creds) {
+    login({ commit, dispatch }, creds) {
       auth.post('login', creds)
-      .then(res => {
-        commit('setUser', res.data)
-        dispatch('getAlbums', res.data._id)
-        router.push({name: 'userDash'})
-      })
+        .then(res => {
+          commit('setUser', res.data)
+          dispatch('getAlbums', res.data._id)
+          router.push({ name: 'userDash' })
+        })
     },
-    logout({commit}) {
+    logout({ commit }) {
       auth.delete('logout')
-      .then(res => {
-        router.push({name: 'home'})
-      })
+        .then(res => {
+          router.push({ name: 'home' })
+        })
     }
 
-  
+
 
   }
 })

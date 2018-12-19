@@ -1,5 +1,5 @@
 <template>
-  <div class="userDash container-fluid" >
+  <div class="userDash container-fluid">
     <h1>Welcome to your Dashboard</h1>
     <div class="row">
       <div class="col-5">
@@ -10,16 +10,16 @@
         <PostForm></PostForm>
       </div>
     </div>
-      <Albums></Albums>
-    </div>
+    <Albums></Albums>
+  </div>
 </template>
 
 
 <script>
-import AlbumForm from '@/components/UserDash/createAlbum.vue'
-import PostForm from '@/components/UserDash/createPost.vue'
-import UserInfo from '@/components/UserDash/userInfo.vue'
-import Albums from '@/components/albums.vue'
+  import AlbumForm from '@/components/UserDash/createAlbum.vue'
+  import PostForm from '@/components/UserDash/createPost.vue'
+  import UserInfo from '@/components/UserDash/userInfo.vue'
+  import Albums from '@/components/albums.vue'
   export default {
     name: 'userDash',
     data() {
@@ -30,8 +30,8 @@ import Albums from '@/components/albums.vue'
     computed: {},
     components: {
       AlbumForm,
-      PostForm, 
-      UserInfo, 
+      PostForm,
+      UserInfo,
       Albums
     }
   }
@@ -39,7 +39,7 @@ import Albums from '@/components/albums.vue'
 </script>
 
 <style>
-
-
+  body {
+    background-color: lightblue
+  }
 </style>
-

@@ -1,12 +1,12 @@
 <template>
-  <div class="">
+  <div class="post container-fluid">
 
   </div>
 </template>
 
 <script>
   export default {
-    name: '',
+    name: 'post',
     data() {
       return {
 
