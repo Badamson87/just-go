@@ -23,7 +23,8 @@ let schema = new Schema({
   image: { type: String, required: true },
   creatorId: { type: ObjectId, ref: "User", required: true },
   flags: [flag],
-  location: { type: String, required: true }
+  location: { type: String, required: true },
+  albumId: { type: ObjectId, ref: "Album", required: true }
 }, { timestamps: true })
 
 schema.pre('remove', function (next) {

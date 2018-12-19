@@ -85,26 +85,26 @@ router.get('/', (req, res, next) => {
 
 // add a clone
 
-router.post('/clone', (req, res, next) => {
-  Post.findById(req.body.id)
-    .exec((err, post) => {
-      if (err) {
-        console.log(err)
-        next()
-      }
-      let clone = post
-      clone._doc._id = mongoose.Types.ObjectId()
-      clone._doc.creatorId = req.session.uid
-      clone.isNew = true
-      clone.save(err => {
-        if (err) {
-          console.log(err)
-          next()
-        }
-        res.send(clone)
-      })
-    })
-})
+// router.post('/clone', (req, res, next) => {
+//   Post.findById(req.body.id)
+//     .exec((err, post) => {
+//       if (err) {
+//         console.log(err)
+//         next()
+//       }
+//       let clone = post
+//       clone._doc._id = mongoose.Types.ObjectId()
+//       clone._doc.creatorId = req.session.uid
+//       clone.isNew = true
+//       clone.save(err => {
+//         if (err) {
+//           console.log(err)
+//           next()
+//         }
+//         res.send(clone)
+//       })
+//     })
+// })
 
 
 module.exports = router
