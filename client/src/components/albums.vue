@@ -1,12 +1,7 @@
 <template>
-  <div class="albums">
-    <div class="row">
-      <div class="col-12">
-        <h5>My Albums</h5>
-      </div>
-    </div>
-    <div class="row card-deck">
-      <div v-for="album in albums" class="card col-3 mt-3 mb-1" :key="album._id">
+  <div class="row">
+    <div v-for="album in albums" class="col-3" :key="album._id">
+      <div class="card m-1">
         <p class="card-title">{{album.title}}</p>
       </div>
     </div>
