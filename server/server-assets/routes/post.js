@@ -13,7 +13,6 @@ router.post('/', (req, res, next) => {
     .catch(err => {
       console.log(err)
       res.status(400).send(err)
-      next()
     })
 })
 
@@ -56,7 +55,6 @@ router.put('/:id', (req, res, next) => {
     .catch(err => {
       console.log(err)
       res.status(400).send(err)
-      next()
     })
 })
 
@@ -70,7 +68,6 @@ router.get('/:id', (req, res, next) => {
     .catch(err => {
       console.log(err)
       res.status(400).send(err)
-      next()
     })
 })
 
@@ -84,7 +81,6 @@ router.get('/', (req, res, next) => {
     .catch(err => {
       console.log(err)
       res.status(400).send(err)
-      next()
     })
 })
 
@@ -98,7 +94,6 @@ router.get('/album/:id', (req, res, next) => {
     .catch(err => {
       console.log(err)
       res.status(400).send(err)
-      next()
     })
 })
 
@@ -112,7 +107,6 @@ router.post('/clone', (req, res, next) => {
       if (err) {
         console.log(err)
         res.status(400).send(err)
-        next()
       }
       let clone = post
       clone._doc._id = mongoose.Types.ObjectId()
@@ -122,8 +116,7 @@ router.post('/clone', (req, res, next) => {
       clone.save(err => {
         if (err) {
           console.log(err)
-          res.status(400).send(err)
-          next()
+          return res.status(400).send(err)
         }
         res.send(clone)
       })
