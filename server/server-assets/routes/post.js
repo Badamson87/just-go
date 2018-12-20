@@ -89,20 +89,6 @@ router.get('/', (req, res, next) => {
 })
 
 
-// Get a post by Id
-router.get('/:id', (req, res, next) => {
-  Post.findById(req.params.id)
-    .then(data => {
-      res.send(data)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(400).send(err)
-      next()
-    })
-})
-
-
 // Get a post by Album Id
 router.get('/album/:id', (req, res, next) => {
   Post.find({ albumId: req.params.id })

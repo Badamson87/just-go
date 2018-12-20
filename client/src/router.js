@@ -36,9 +36,10 @@ export default new Router({
       props: true
     },
     {
-      path: '/post',
+      path: '/post/:postId',
       name: 'post',
-      component: Post
+      component: Post,
+      props: true
     },
     {
       path: '/userDash',
