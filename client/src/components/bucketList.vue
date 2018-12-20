@@ -1,8 +1,8 @@
 <template>
  <div class="row">
-     <h1>This is data</h1>
     <div v-for="bucketList in bucketLists" :albumId="bucketList._id" class="col-3" :key="bucketList._id">
         <div  class="card m-1"> 
+            <button @click="deleteBL(bucketList)">Delete</button>
             <router-link :to="{name: 'album', params: {albumId: 'bucketList.authorId'}}">
             <p class="card-title">{{bucketList.title}}</p>
             </router-link>
@@ -30,6 +30,9 @@
     methods: {
         getBucketLists(albumId){
             this.$store.dispatch('getBL', albumId)
+        },
+        deleteBL(bucketList){
+            this.$store.dispatch('deleteBL', bucketList)
         }
     },
     mounted() {
