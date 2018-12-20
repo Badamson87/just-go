@@ -3,15 +3,11 @@
     <div class="row">
     
           <div v-for="post in activeAlbum" class="col-3 my-3">
-              <div class="card ">
+              <div class="card cardSize">
+                <img class="imgSize" :src='post.image' >
                 <p>{{post.title}}</p>
-                <p>{{post.image}}</p>
                 <p>{{post.description}}</p>
-
               </div>
-          
-
-        
       </div>
     </div>
   </div>
@@ -44,5 +40,13 @@
 
 <style>
 
+.imgSize {
+  width: 100%;
+  margin-bottom: 4vh;
+}
+.cardSide {
+  width: 129%;
+  height: 119%;
+}
 
 </style>
