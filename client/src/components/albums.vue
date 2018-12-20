@@ -32,7 +32,6 @@
         this.$store.dispatch('getPostsByAlbumId', albumId)
       },
       deleteAlbum(album){
-        debugger
         this.$store.dispatch('deleteAlbum', album)
       }
     },

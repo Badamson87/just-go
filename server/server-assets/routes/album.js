@@ -90,7 +90,7 @@ router.get('/:id', (req, res, next) => {
 
 // Get all album by user id
 router.get('/user/:authorId', (req, res, next) => {
-  Albums.find({ authorId: req.params.authorId })
+  Albums.find({ isBucketlist: false, authorId: req.params.authorId })
     .then(data => {
       res.send(data)
     })
