@@ -44,8 +44,7 @@
   width: 100%;
   margin-bottom: 4vh;
 }
-.cardSide {
-  width: 129%;
+.cardSize {
   height: 119%;
 }
 
