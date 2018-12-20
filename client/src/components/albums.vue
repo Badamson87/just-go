@@ -2,7 +2,7 @@
   <div class="row">
     <div v-for="album in albums" class="col-3" :key="album._id">
       <div  class="card m-1"> 
-        <button @click="deleteAlbum(album._id)">Delete</button>
+        <button @click="deleteAlbum(album)">Delete</button>
         <router-link :to="{name: 'album', params: {albumId: album._id}}">
         <p class="card-title">{{album.title}}</p>
       </router-link>
@@ -31,14 +31,8 @@
       getPostsByAlbumId(albumId){
         this.$store.dispatch('getPostsByAlbumId', albumId)
       },
-      deleteAlbum(albumId){
-        let payload={
-        
-          authorId: this.albums.authorId,
-          albumId: albumId
-        }
-        debugger
-        this.$store.dispatch('deleteAlbum', payload)
+      deleteAlbum(album){
+        this.$store.dispatch('deleteAlbum', album)
       }
     },
     mounted() {

@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
+   <PostForm></PostForm> 
     <div class="row">
-    
           <div v-for="post in activeAlbum" class="col-3 my-3">
               <div class="card cardSize">
                 <img class="imgSize" :src='post.image' >
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+  import PostForm from '@/components/UserDash/createPost.vue'
   export default {
     name: 'album',
     data() {
@@ -33,7 +34,10 @@
     methods: {
 
     },
-    props: ["albumId"]
+    props: ["albumId"],
+    components: {
+      PostForm
+    }
   }
 
 </script>

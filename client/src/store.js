@@ -103,6 +103,12 @@ export default new Vuex.Store({
           commit('setBL', res.data)
         })
     },
+    deleteBL({commit, dispatch}, bucketList){
+      api.delete('albums/' + bucketList._id)
+      .then(res => {
+        dispatch('getBL', res.data)
+      })
+    },
 
     //albums
     getAlbums({ commit, dispatch }, authorId) {
@@ -126,10 +132,10 @@ export default new Vuex.Store({
           dispatch('getAlbums', res.data.authorId)
         })
     },
-    deleteAlbum({ commit, dispatch}, payload){
-      api.delete('albums/' + payload.albumId)
+    deleteAlbum({ commit, dispatch}, album){
+      api.delete('albums/' + album._id)
       .then(res => {
-        dispatch('getAlbums', payload.authorId)
+        dispatch('getAlbums', album.authorId)
       })
     },
 
