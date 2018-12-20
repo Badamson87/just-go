@@ -10,11 +10,19 @@
       <div class="col-6">
         <div class="row">
           <div class="col-12 owner">
-            <button @click="" class="btn btn-warning">Edit</button>
-            <button @click="deletePost(post._id)" class="btn btn-danger">Delete</button>
+            <!-- <button @click="editPost(post._id)" class="btn btn-warning">Edit</button> -->
+            <button @click="deletePost(post._id)" class="btn btn-danger">Delete post</button>
           </div>
           <div class="col-12 visitor">
-            <button @click="">Add to Bucket</button>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Add to bucket
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList)"
+                  :albumData="album" v-bind:value="bucketList._id">{{bucketList.title}}</p>
+              </div>
+            </div>
             <button @click="">Go to this post album</button>
             <button @click="">Follow user</button>
           </div>
@@ -54,7 +62,11 @@
       // },
       post() {
         return this.$store.state.activePost
+      },
+      bucketLists() {
+        return this.$store.state.bucketLists
       }
+
     },
     methods: {
       addComment() {
@@ -64,7 +76,13 @@
       },
       deletePost() {
         this.$store.dispatch('deletePost', postId)
-      }
+      },
+      // editPost() {
+      //   this.$store.dispatch('editPost', postId)
+      // },
+      // addToBucket(){
+      //   this.$store.
+      // }
     }
   }
 
