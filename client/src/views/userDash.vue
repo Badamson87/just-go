@@ -12,6 +12,10 @@
     </div>
     <h5>My Albums</h5>
     <Albums></Albums>
+
+    <bucketlistform></bucketlistform>
+    <h5>My Bucket Lists</h5>
+    <BucketLists></BucketLists>
   </div>
 </template>
 
@@ -21,6 +25,8 @@
   import PostForm from '@/components/UserDash/createPost.vue'
   import UserInfo from '@/components/UserDash/userInfo.vue'
   import Albums from '@/components/albums.vue'
+  import bucketlistform from '@/components/UserDash/createbucketlist.vue'
+  import BucketLists from '@/components/bucketList.vue'
   export default {
     name: 'userDash',
     data() {
@@ -33,7 +39,9 @@
       AlbumForm,
       PostForm,
       UserInfo,
-      Albums
+      Albums, 
+      bucketlistform,
+      BucketLists
     }
   }
 

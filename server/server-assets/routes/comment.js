@@ -14,7 +14,6 @@ router.post('/:postId', (req, res, next) => {
     .catch(err => {
       console.log(err)
       res.status(400).send(err)
-      next()
     })
 })
 
@@ -30,9 +29,7 @@ router.delete('/:id', (req, res, next) => {
       comment.remove(err => {
         if (err) {
           console.log(err)
-          res.status(400).send(err)
-          next()
-          return
+          return res.status(400).send(err)
         }
         res.send("Successfully Deleted Post")
       })
@@ -49,8 +46,7 @@ router.get('/:postId', (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(400).send(err)
-      next()
+      return res.status(400).send(err)
     })
 })
 

@@ -22,7 +22,8 @@ export default new Vuex.Store({
     albums: [],
     post: {},
     posts: [],
-    activeAlbum: {}
+    activeAlbum: {},
+    bucketLists: []
   },
 
   mutations: {
@@ -46,6 +47,9 @@ export default new Vuex.Store({
     },
     setPostById(state, post) {
       state.post = post
+    }, 
+    setBL(state, BL){
+      state.bucketLists = BL
     }
 
 
@@ -84,6 +88,21 @@ export default new Vuex.Store({
         })
     },
 
+    //bucket list
+
+    createBL({commit, dispatch}, bucketListData){
+      api.post('albums', bucketListData)
+      .then(res => {
+        console.log("bucketlist :", res.data)
+        dispatch('getBL', res.data.authorId)
+      })
+    },
+    getBL({commit, dispatch}){
+      api.get('albums/bucketlists/')
+      .then(res => {
+        commit('setBL', res.data)
+      })
+    },
 
     //albums
     getAlbums({ commit, dispatch }, authorId) {

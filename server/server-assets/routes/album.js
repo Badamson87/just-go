@@ -12,7 +12,7 @@ router.post('/', (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      next()
+      res.status(400).send(err)
     })
 })
 
@@ -26,9 +26,7 @@ router.delete('/:id', (req, res, next) => {
       album.remove(err => {
         if (err) {
           console.log(err)
-          res.status(400).send(err)
-          next()
-          return
+          return res.status(400).send(err)
         }
         res.send("Successfully Deleted Album")
       })
@@ -46,9 +44,7 @@ router.put('/:id', (req, res, next) => {
       album.update(req.body, (err) => {
         if (err) {
           console.log(err)
-          res.status(400).send(err)
-          next()
-          return
+          return res.status(400).send(err)
         }
         res.send("Successfully Updated Album")
       });
@@ -56,29 +52,39 @@ router.put('/:id', (req, res, next) => {
     .catch(err => {
       console.log(err)
       res.status(400).send(err)
-      next()
     })
 })
 
+
+//bucketlist
+
+router.get('/bucketlists', (req, res, next) => {
+  Albums.find({isBucketlist: true, authorId: req.session.uid})
+    .then (data => {
+      res.send(data)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(400).send(err)
+    })
+})
 
 // Get album by Id
 router.get('/:id', (req, res, next) => {
   Albums.findById(req.params.id)    // session / needs to be album id not user id?
     .populate('posts').exec((err, newAlbum) => {
       if (err) {
-        next(err)
-        res.status(400).send(err)
-        return
+        return res.status(400).send(err)
       }
       res.send(newAlbum)
     })
   // .then(data => {
   //   res.send(data)
   // })
-  // .catch(err => {
-  //   console.log(err)
-  //   next()
-  // })
+  .catch(err => {
+    console.log(err)
+    res.status(400).send(err)
+  })
 })
 
 
@@ -91,9 +97,7 @@ router.get('/user/:authorId', (req, res, next) => {
     .catch(err => {
       console.log(err)
       res.status(400).send(err)
-      next()
     })
 })
-
 
 module.exports = router
