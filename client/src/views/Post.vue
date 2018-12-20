@@ -30,16 +30,20 @@
     // },
     data() {
       return {
-
       }
     },
     mounted() {
-      this.$store.dispatch("getPostById", this.postId)
+      if (!this.post._id) {
+        this.$store.dispatch("getPostById", this.$route.params.postId)
+      }
     },
     computed: {
-      // comments(){
-      // return this.$store.state.comments
-      // }
+      // comments() {
+      //   return this.$store.state.comments
+      // },
+      post() {
+        return this.$store.state.activePost
+      }
     },
     methods: {
       addComment() {

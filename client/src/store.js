@@ -20,7 +20,7 @@ export default new Vuex.Store({
   state: {
     user: {},
     albums: [],
-    post: {},
+    activePost: {},
     posts: [],
     activeAlbum: {},
     bucketLists: []
@@ -34,7 +34,7 @@ export default new Vuex.Store({
       state.albums = albums
     },
     setPost(state, post) {
-      state.post = post
+      state.activePost = post
     },
     setPosts(state, posts) {
       state.posts = posts
@@ -68,7 +68,7 @@ export default new Vuex.Store({
     getPostById({ commit, dispatch }, postId) {
       api.get('posts/' + postId)
         .then(res => {
-          commit('setPostById', res.data)
+          commit('setPost', res.data)
         })
     },
     getAllPosts({ commit, dispatch }) {
@@ -160,7 +160,6 @@ export default new Vuex.Store({
       auth.delete('logout')
         .then(res => {
           commit('logout')
-          // router.push({ name: 'home', path: "/" })
         })
     }
 
