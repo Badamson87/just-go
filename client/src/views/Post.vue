@@ -24,13 +24,30 @@
 <script>
   export default {
     name: 'post',
+    props: ['postId'],
+    // components: {
+    //   comments
+    // },
     data() {
       return {
 
       }
     },
-    computed: {},
-    methods: {}
+    mounted() {
+      this.$store.dispatch("getPostById", this.postId)
+    },
+    computed: {
+      // comments(){
+      // return this.$store.state.comments
+      // }
+    },
+    methods: {
+      addComment() {
+        this.newComment.postId = this.postId
+        this.$store.dispatch('addComment', this.newComment);
+        this.newComment = { title: "", authorId: "", postId: "", description: "", userName: "" }
+      }
+    }
   }
 
 </script>

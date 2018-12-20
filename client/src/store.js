@@ -43,7 +43,11 @@ export default new Vuex.Store({
     },
     logout(state) {
       state.user = {}
+    },
+    setPostById(state, post) {
+      state.post = post
     }
+
 
   },
   actions: {
@@ -57,11 +61,12 @@ export default new Vuex.Store({
           dispatch("editAlbum", res.data.data.albumId)
         })
     },
-    // getPosts({ commit, dispatch }, albumId) {
-    //   api.get('album/' + albumId)
-    //     .then(res => {
-    //     })
-    // },
+    getPostById({ commit, dispatch }, postId) {
+      api.get('posts/' + postId)
+        .then(res => {
+          commit('setPostById', res.data)
+        })
+    },
     getAllPosts({ commit, dispatch }) {
       api.get('posts/')
         .then(res => {
