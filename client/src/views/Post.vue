@@ -5,10 +5,16 @@
         <h1>{{post.title}}</h1>
         <h4>{{post.location}}</h4>
         <h4>{{post.rating}}</h4>
-        <p>{{post.decription}}</p>
+        <p>{{post.description}}</p>
       </div>
       <div class="col-6">
-        <img :src="post.image">
+        <div class="row">
+          <div class="col align-content-right">
+            <button @click="" class="btn btn-warning">Edit</button>
+            <button @click="" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+        <img class="image" :src="post.image">
       </div>
     </div>
     <div class="row">
@@ -56,7 +62,9 @@
 
 </script>
 
-<style>
-
-
+<style scoped>
+  .image {
+    width: 43vw;
+    padding-left: 1rem
+  }
 </style>
