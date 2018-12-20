@@ -126,6 +126,12 @@ export default new Vuex.Store({
           dispatch('getAlbums', res.data.authorId)
         })
     },
+    deleteAlbum({ commit, dispatch}, payload){
+      api.delete('albums/' + payload.albumId)
+      .then(res => {
+        dispatch('getAlbums', payload.authorId)
+      })
+    },
 
 
 
