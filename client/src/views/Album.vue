@@ -9,11 +9,11 @@
     name: 'album',
     data() {
       return {
-        
+
       }
     },
-    mounted(){
-     return this.$store.dispatch('getPostsByAlbumId', this.albumId)
+    mounted() {
+      return this.$store.dispatch('getPostsByAlbumId', this.albumId)
     },
     computed: {
       activeAlbum() {

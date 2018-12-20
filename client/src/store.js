@@ -40,6 +40,9 @@ export default new Vuex.Store({
     },
     setActiveAlbum(state, activeAlbum) {
       state.activeAlbum = activeAlbum
+    },
+    logout(state) {
+      state.user = {}
     }
 
   },
@@ -129,10 +132,11 @@ export default new Vuex.Store({
           router.push({ name: 'userDash' })
         })
     },
-    logout({ commit }) {
+    logout({ commit, dispatch }) {
       auth.delete('logout')
         .then(res => {
-          router.push({ name: 'home' })
+          commit('logout')
+          // router.push({ name: 'home', path: "/" })
         })
     }
 
