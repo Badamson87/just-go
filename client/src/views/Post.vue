@@ -9,9 +9,14 @@
       </div>
       <div class="col-6">
         <div class="row">
-          <div class="col align-content-right">
+          <div class="col-12 owner">
             <button @click="" class="btn btn-warning">Edit</button>
-            <button @click="" class="btn btn-danger">Delete</button>
+            <button @click="deletePost(post._id)" class="btn btn-danger">Delete</button>
+          </div>
+          <div class="col-12 visitor">
+            <button @click="">Add to Bucket</button>
+            <button @click="">Go to this post album</button>
+            <button @click="">Follow user</button>
           </div>
         </div>
         <img class="image" :src="post.image">
@@ -56,6 +61,9 @@
         this.newComment.postId = this.postId
         this.$store.dispatch('addComment', this.newComment);
         this.newComment = { title: "", authorId: "", postId: "", description: "", userName: "" }
+      },
+      deletePost() {
+        this.$store.dispatch('deletePost', postId)
       }
     }
   }
@@ -67,4 +75,6 @@
     width: 43vw;
     padding-left: 1rem
   }
+
+  .owner {}
 </style>
