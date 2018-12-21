@@ -41,6 +41,7 @@
 </template>
 
 <script>
+  import comments from '@/components/comments.vue'
   export default {
     name: 'post',
     props: ['postId'],
@@ -83,6 +84,9 @@
       // addToBucket(){
       //   this.$store.
       // }
+    },
+    components: {
+      comments
     }
   }
 
