@@ -57,12 +57,13 @@ export default new Vuex.Store({
   actions: {
     //posts
     createPost({ commit, dispatch }, formData) {
+      debugger
       api.post('posts', formData)
         .then(res => {
           console.log(res.data)
           commit("setPost", res.data)
-          // dispatch('getAlbums')
-          dispatch("editAlbum", res.data.data.albumId)
+          dispatch('getPostsByAlbumId', res.data.albumId)
+          // dispatch("editAlbum", res.data.data.albumId)
         })
     },
     getPostById({ commit, dispatch }, postId) {
@@ -86,6 +87,12 @@ export default new Vuex.Store({
           commit('setActiveAlbum', res.data)
           // router.push({name:'album'})
         })
+    },
+    deletePost({ commit, dispatch}, postData) {
+    api.delete('posts/' + postData._id)
+    .then(res=> {
+      dispatch('getPostsByAlbumId', postData.albumId)
+    })
     },
 
     //bucket list

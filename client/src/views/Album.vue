@@ -7,6 +7,7 @@
                 <img class="imgSize" :src='post.image' >
                 <p>{{post.title}}</p>
                 <p>{{post.description}}</p>
+                <button @click="deletePost(post)">Delete</button>
               </div>
       </div>
     </div>
@@ -32,7 +33,9 @@
 
     },
     methods: {
-
+      deletePost(postData){
+        this.$store.dispatch('deletePost', postData)
+      }
     },
     props: ["albumId"],
     components: {
