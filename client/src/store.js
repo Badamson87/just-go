@@ -88,11 +88,11 @@ export default new Vuex.Store({
           // router.push({name:'album'})
         })
     },
-    deletePost({ commit, dispatch}, postData) {
-    api.delete('posts/' + postData._id)
-    .then(res=> {
-      dispatch('getPostsByAlbumId', postData.albumId)
-    })
+    deletePost({ commit, dispatch }, postData) {
+      api.delete('posts/' + postData._id)
+        .then(res => {
+          dispatch('getPostsByAlbumId', postData.albumId)
+        })
     },
 
     //bucket list
@@ -110,12 +110,20 @@ export default new Vuex.Store({
           commit('setBL', res.data)
         })
     },
-    deleteBL({commit, dispatch}, bucketList){
+    deleteBL({ commit, dispatch }, bucketList) {
       api.delete('albums/' + bucketList._id)
-      .then(res => {
-        dispatch('getBL', res.data)
-      })
+        .then(res => {
+          dispatch('getBL', res.data)
+        })
     },
+    // addToBucket({ commit, dispatch }, payload) {
+    //   debugger
+    //   api.post('/clone' + payload)
+    //     .then(res => {
+    //       console.log(res)
+    //       dispatch('getBL')
+    //     })
+    // },
 
     //albums
     getAlbums({ commit, dispatch }, authorId) {
@@ -139,11 +147,11 @@ export default new Vuex.Store({
           dispatch('getAlbums', res.data.authorId)
         })
     },
-    deleteAlbum({ commit, dispatch}, album){
+    deleteAlbum({ commit, dispatch }, album) {
       api.delete('albums/' + album._id)
-      .then(res => {
-        dispatch('getAlbums', album.authorId)
-      })
+        .then(res => {
+          dispatch('getAlbums', album.authorId)
+        })
     },
 
 

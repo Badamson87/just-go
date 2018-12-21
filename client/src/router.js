@@ -42,6 +42,11 @@ export default new Router({
       props: true
     },
     {
+      path: '/posts/clone',
+      name: 'clone',
+
+    },
+    {
       path: '/userDash',
       name: 'userDash',
       component: userDash

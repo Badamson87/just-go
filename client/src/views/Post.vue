@@ -44,7 +44,7 @@
   import comments from '@/components/comments.vue'
   export default {
     name: 'post',
-    props: ['postId'],
+    props: ['postId', "postData"],
     // components: {
     //   comments
     // },
@@ -87,6 +87,14 @@
     },
     components: {
       comments
+      addToBucket(albumId) {
+        let payload = {
+          postId: this.post._id,
+          // postData: this.postData
+        }
+        console.log(payload)
+        this.$store.dispatch('addToBucket', { payload })
+      }
     }
   }
 
