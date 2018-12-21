@@ -43,7 +43,7 @@
 <script>
   export default {
     name: 'post',
-    props: ['postId'],
+    props: ['postId', "postData"],
     // components: {
     //   comments
     // },
@@ -80,9 +80,14 @@
       // editPost() {
       //   this.$store.dispatch('editPost', postId)
       // },
-      // addToBucket(){
-      //   this.$store.
-      // }
+      addToBucket(albumId) {
+        let payload = {
+          postId: this.post._id,
+          // postData: this.postData
+        }
+        console.log(payload)
+        this.$store.dispatch('addToBucket', { payload })
+      }
     }
   }
 
