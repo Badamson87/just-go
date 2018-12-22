@@ -50,6 +50,7 @@
     // },
     data() {
       return {
+        postId: ''
       }
     },
     mounted() {
@@ -85,7 +86,6 @@
     components: {
       comments
     },
-    props: ['postId']
   }
 
 //NOT SURE WHAT THIS CODE BELONGED TOO -KS
