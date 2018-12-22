@@ -23,7 +23,8 @@ export default new Vuex.Store({
     activePost: {},
     posts: [],
     activeAlbum: {},
-    bucketLists: []
+    bucketLists: [],
+    comments: []
   },
 
   mutations: {
@@ -50,8 +51,10 @@ export default new Vuex.Store({
     // }, 
     setBL(state, BL) {
       state.bucketLists = BL
+    },
+    setComment(state, comment) {
+      state.comments = comment
     }
-
 
   },
   actions: {
@@ -154,6 +157,19 @@ export default new Vuex.Store({
         })
     },
 
+    //comments
+    addComment({ commit, dispatch }, postId) {
+      api.post('comments/' + postId)
+        .then(res => {
+          dispatch('getComments', postId)
+        })
+    },
+    getComments({ commit, dispatch }, postId) {
+      api.get('comments' + postId)
+        .then(res => {
+          commit('setComment', res.data)
+        })
+    },
 
 
     // auth 
