@@ -158,15 +158,17 @@ export default new Vuex.Store({
     },
 
     //comments
-    addComment({ commit, dispatch }, postId) {
-      api.post('comments/' + postId)
+    addComment({ commit, dispatch }, commentData) {
+      debugger
+      api.post('comments/' + commentData.postId, commentData)
         .then(res => {
-          dispatch('getComments', postId)
+          dispatch('getComments', commentData.postId)
         })
     },
     getComments({ commit, dispatch }, postId) {
-      api.get('comments' + postId)
+      api.get('comments/' + postId)
         .then(res => {
+          console.log('comments:', res.data)
           commit('setComment', res.data)
         })
     },

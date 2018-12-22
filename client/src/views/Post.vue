@@ -33,7 +33,7 @@
     <div class="row mt-5">
       <div class="col-12">
         <!-- do we want to build comments as a component or inside the the post view? -->
-        <comments></comments>
+        <comments v-bind:postId="postId"></comments>
       </div>
     </div>
 
@@ -50,7 +50,6 @@
     // },
     data() {
       return {
-        postId: ''
       }
     },
     mounted() {
@@ -74,7 +73,7 @@
     },
     methods: {
       deletePost() {
-        this.$store.dispatch('deletePost', postId)
+        this.$store.dispatch('deletePost', this.postId)
       },
     },
     // editPost() {
