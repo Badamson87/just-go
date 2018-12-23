@@ -33,7 +33,7 @@
     <div class="row mt-5">
       <div class="col-12">
         <!-- do we want to build comments as a component or inside the the post view? -->
-        <comments v-bind:postId="postId"></comments>
+        <comments v-bind:postId="post._id"></comments>
       </div>
     </div>
 

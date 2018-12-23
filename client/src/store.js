@@ -159,13 +159,14 @@ export default new Vuex.Store({
 
     //comments
     addComment({ commit, dispatch }, commentData) {
-      debugger
       api.post('comments/' + commentData.postId, commentData)
         .then(res => {
           dispatch('getComments', commentData.postId)
         })
     },
+    //get comments for one specific post
     getComments({ commit, dispatch }, postId) {
+      debugger
       api.get('comments/' + postId)
         .then(res => {
           console.log('comments:', res.data)

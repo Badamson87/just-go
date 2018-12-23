@@ -2,9 +2,9 @@
   <div class="userInfo card cardBorder offset-2">
     <p>User Info</p>
     <div class="imgCard">
-      <img class="imgSize" :src="user.image" />
+      <img class="userImg" :src="user.image" />
     </div>
-    <h5>{{user.name}}</h5>
+    <h5 class="mt-4">{{user.name}}</h5>
 
   </div>
 </template>
@@ -31,6 +31,10 @@
 <style>
   .cardBorder {
     border: solid rgb(159, 158, 158) 1px;
+  }
 
+  .userImg {
+    height: 20vh;
+    width: 20vh;
   }
 </style>

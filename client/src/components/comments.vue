@@ -21,6 +21,7 @@
       <div class="commentStyle row">
         <h6 class="col-12 commentSpacing">{{comment.title}}</h6>
         <p class="col-12 commentSpacing">{{comment.creatorId}}</p>
+        <p>POST ID: {{comment.postId}}</p>
         <!-- need to change creatorId to user-> userName -->
         <p class="col-12 commentSpacing">{{comment.description}}</p>
       </div>
@@ -40,7 +41,9 @@
       }
     },
     mounted() {
-      this.$store.dispatch('getComments', this.activePost._id)
+      debugger
+      this.$store.dispatch('getComments', this.postId)
+      // activePost._id
     },
     computed: {
       activePost() {
@@ -52,7 +55,6 @@
     },
     methods: {
       addComment() {
-        debugger
         let payload = {
           title: this.commentData.title,
           description: this.commentData.description,
@@ -75,11 +77,16 @@
 
 <style>
   .commentStyle {
-    background-color: #CAEBF2
+    background-color: #CAEBF2;
+    border: solid 1px rgb(235, 235, 235)
   }
 
   .commentSpacing {
     display: flex;
     justify-content: flex-start;
+  }
+
+  .comborder {
+    border: solid 1px rgb(208, 207, 207)
   }
 </style>
