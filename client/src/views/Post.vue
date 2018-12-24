@@ -107,6 +107,4 @@
     width: 43vw;
     padding-left: 1rem
   }
-
-  .owner {}
 </style>
