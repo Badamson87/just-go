@@ -56,6 +56,8 @@
       if (!this.post._id) {
         this.$store.dispatch("getPostById", this.$route.params.postId)
       }
+      this.$store.dispatch('getBL')
+
     },
     computed: {
       // comments() {
