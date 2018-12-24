@@ -1,25 +1,24 @@
 <template>
   <div class="postForm">
-    <h5>Create Post</h5>
-        <form @submit.prevent="createPost">
-          <div class="form-group">
 
-            <label for="selectedAlbum"></label>
-            
-            <select class="form-control" v-model="formData.albumId" id="selectedAlbum" >
-              <option v-for="album in albums" :key="albums._id" v-bind:value="album._id">{{album.title}}</option>
-            </select>
+    <form @submit.prevent="createPost">
+      <div class="form-group">
+        <label for="selectedAlbum">Create Post</label>
 
-            <input class="form-control" type="text" placeholder="Title" v-model="formData.title">
-            <input class="form-control" type="text" placeholder="Location" v-model="formData.location">
-            <!-- goelocation?? -->
-            <textarea class="form-control" type="text" placeholder="Description" v-model="formData.description"></textarea>
-            <!-- change back to type=file and then use base 64 encoding accept="image/*"  -->
-            <input class="form-control" type="text" v-model="formData.image" placeholder="Image URL">
-            <button type="submit" class="btn btn-danger">Create</button>
-          </div>
-        </form>
-        
+        <select class="form-control" v-model="formData.albumId" id="selectedAlbum">
+          <option v-for="album in albums" :key="albums._id" v-bind:value="album._id">{{album.title}}</option>
+        </select>
+
+        <input class="form-control" type="text" placeholder="Title" v-model="formData.title">
+        <input class="form-control" type="text" placeholder="Location" v-model="formData.location">
+        <!-- goelocation?? -->
+        <textarea class="form-control" type="text" placeholder="Description" v-model="formData.description"></textarea>
+        <!-- change back to type=file and then use base 64 encoding accept="image/*"  -->
+        <input class="form-control" type="text" v-model="formData.image" placeholder="Image URL">
+        <button type="submit" class="btn btn-danger">Create</button>
+      </div>
+    </form>
+
   </div>
 </template>
 
@@ -29,22 +28,22 @@
     data() {
       return {
         formData: {
-          title:'',
-          location:'',
+          title: '',
+          location: '',
           description: '',
-          image: '', 
-          albumId:''
+          image: '',
+          albumId: ''
+        }
       }
-    }
     },
     computed: {
-      albums(){
-        
+      albums() {
+
         return this.$store.state.albums
       }
     },
     methods: {
-      createPost(){
+      createPost() {
         this.$store.dispatch('createPost', this.formData)
         event.target.reset()
       }

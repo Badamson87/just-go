@@ -1,9 +1,8 @@
 <template>
   <div class="Home container-fluid">
-    <!-- <img src="https://previews.123rf.com/images/dzein/dzein1512/dzein151200003/48820352-travel-the-world-hand-drawing-with-famous-landmarks-and-places-in-colorful-watercolor-background-wit.jpg"> -->
     <div class="row">
       <div class="col-12">
-        <h1>All Posts</h1>
+        <h5>All Posts</h5>
         <div class="row">
           <div class="allPosts col-12">
             <div v-for="post in posts" :key="post._id" class="col-3 my-4">

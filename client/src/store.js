@@ -16,13 +16,6 @@ let api = Axios.create({
   withCredentials: true
 })
 
-
-
-
-  
-
- 
-
 export default new Vuex.Store({
   state: {
     user: {},
@@ -31,7 +24,7 @@ export default new Vuex.Store({
     posts: [],
     activeAlbum: {},
     bucketLists: [],
-    comments:[]
+    comments: []
   },
 
   mutations: {
@@ -60,27 +53,26 @@ export default new Vuex.Store({
       state.bucketLists = BL
     },
     setComment(state, comment) {
-      state.comment = comment
-  }
-
+      state.comments = comment
+    }
 
   },
   actions: {
     // comments
-    addComment({ commit, dispatch}, commentData) {
-      api.post('comments/' + commentData.postId)
-      .then(res=> {
-          commit('setComment', res.data)
-          console.log(res.data)
-          dispatch('getComments', commentData.postId)
-      })
-  },
-  getComments({ commit, dispatch}, postId) {
-    api.get('comments/' + postId)
-    .then(res=> {
-      commit('setComment', res.data)
-    })
-  },
+    //   addComment({ commit, dispatch}, commentData) {
+    //     api.post('comments/' + commentData.postId)
+    //     .then(res=> {
+    //         commit('setComment', res.data)
+    //         console.log(res.data)
+    //         dispatch('getComments', commentData.postId)
+    //     })
+    // },
+    // getComments({ commit, dispatch}, postId) {
+    //   api.get('comments/' + postId)
+    //   .then(res=> {
+    //     commit('setComment', res.data)
+    //   })
+    // },
 
     //posts
     createPost({ commit, dispatch }, formData) {
@@ -180,6 +172,22 @@ export default new Vuex.Store({
         })
     },
 
+    // comments
+    addComment({ commit, dispatch }, commentData) {
+      api.post('comments/' + commentData.postId, commentData)
+        .then(res => {
+          dispatch('getComments', commentData.postId)
+        })
+    },
+    //get comments for one specific post
+    getComments({ commit, dispatch }, postId) {
+      debugger
+      api.get('comments/' + postId)
+        .then(res => {
+          console.log('comments:', res.data)
+          commit('setComment', res.data)
+        })
+    },
 
 
     // auth 

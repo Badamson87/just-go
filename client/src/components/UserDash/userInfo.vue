@@ -1,8 +1,11 @@
 <template>
   <div class="userInfo card cardBorder offset-2">
-    <div class="card-body">
-        <p>Card body</p>
+    <p>User Info</p>
+    <div class="imgCard">
+      <img class="userImg" :src="user.image" />
     </div>
+    <h5 class="mt-4">{{user.name}}</h5>
+
   </div>
 </template>
 
@@ -15,15 +18,23 @@
 
       }
     },
-    computed: {},
+    computed: {
+      user() {
+        return this.$store.state.user
+      }
+    },
     methods: {}
   }
 
 </script>
 
 <style>
-.cardBorder {
-    border: solid black 2px;
-}
+  .cardBorder {
+    border: solid rgb(159, 158, 158) 1px;
+  }
 
+  .userImg {
+    height: 20vh;
+    width: 20vh;
+  }
 </style>
