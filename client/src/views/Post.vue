@@ -87,14 +87,14 @@
     },
     components: {
       comments
-      addToBucket(albumId) {
-        let payload = {
-          postId: this.post._id,
-          // postData: this.postData
-        }
-        console.log(payload)
-        this.$store.dispatch('addToBucket', { payload })
-      }
+      // addToBucket(albumId) {
+      //   let payload = {
+      //     postId: this.post._id,
+      //     // postData: this.postData
+      //   }
+      //   console.log(payload)
+      //   this.$store.dispatch('addToBucket', { payload })
+      // }
     }
   }
 
