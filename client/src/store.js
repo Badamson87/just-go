@@ -16,6 +16,13 @@ let api = Axios.create({
   withCredentials: true
 })
 
+
+
+
+  
+
+ 
+
 export default new Vuex.Store({
   state: {
     user: {},
@@ -23,7 +30,8 @@ export default new Vuex.Store({
     activePost: {},
     posts: [],
     activeAlbum: {},
-    bucketLists: []
+    bucketLists: [],
+    comments:[]
   },
 
   mutations: {
@@ -50,14 +58,32 @@ export default new Vuex.Store({
     // }, 
     setBL(state, BL) {
       state.bucketLists = BL
-    }
+    },
+    setComment(state, comment) {
+      state.comment = comment
+  }
 
 
   },
   actions: {
+    // comments
+    addComment({ commit, dispatch}, commentData) {
+      api.post('comments/' + commentData.postId)
+      .then(res=> {
+          commit('setComment', res.data)
+          console.log(res.data)
+          dispatch('getComments', commentData.postId)
+      })
+  },
+  getComments({ commit, dispatch}, postId) {
+    api.get('comments/' + postId)
+    .then(res=> {
+      commit('setComment', res.data)
+    })
+  },
+
     //posts
     createPost({ commit, dispatch }, formData) {
-      debugger
       api.post('posts', formData)
         .then(res => {
           console.log(res.data)
