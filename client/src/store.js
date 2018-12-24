@@ -58,9 +58,24 @@ export default new Vuex.Store({
 
   },
   actions: {
+    // comments
+    //   addComment({ commit, dispatch}, commentData) {
+    //     api.post('comments/' + commentData.postId)
+    //     .then(res=> {
+    //         commit('setComment', res.data)
+    //         console.log(res.data)
+    //         dispatch('getComments', commentData.postId)
+    //     })
+    // },
+    // getComments({ commit, dispatch}, postId) {
+    //   api.get('comments/' + postId)
+    //   .then(res=> {
+    //     commit('setComment', res.data)
+    //   })
+    // },
+
     //posts
     createPost({ commit, dispatch }, formData) {
-      debugger
       api.post('posts', formData)
         .then(res => {
           console.log(res.data)
@@ -157,7 +172,7 @@ export default new Vuex.Store({
         })
     },
 
-    //comments
+    // comments
     addComment({ commit, dispatch }, commentData) {
       api.post('comments/' + commentData.postId, commentData)
         .then(res => {

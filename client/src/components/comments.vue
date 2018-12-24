@@ -28,7 +28,7 @@
     </div>
   </div>
 </template>
-
+<!-- Need to pull in post info into the computed?? -->
 <script>
   export default {
     name: 'comment',
