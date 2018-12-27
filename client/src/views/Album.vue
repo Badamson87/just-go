@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <PostForm></PostForm>
     <h5>Album Title Should Go Here</h5>
+
     <div class="row">
       <div v-for="post in activeAlbum" class="col-3 my-3">
         <div class="card cardSize">

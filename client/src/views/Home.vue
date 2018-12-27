@@ -3,21 +3,22 @@
     <div class="row">
       <div class="col-12">
         <h5>All Posts</h5>
+
         <div class="row">
-          <div class="allPosts col-12">
-            <div v-for="post in posts" :key="post._id" class="col-3 my-4">
-              <div class="card">
-                <div class="card-body borderBox">
-                  <div @click="setActivePost(post)">
-                    <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
-                      <h5>{{post.title}}</h5>
-                      <img class=" img-fluid" :src="post.image">
-                      <p class="card-text">{{post.rating}}</p>
-                    </router-link>
-                  </div>
-                </div>
-              </div>
+          <!-- <div class="allPosts col-12"> -->
+          <div v-for="post in posts" :key="post._id" class="col-3 my-2">
+            <!-- <div class="card"> -->
+            <div class="card cardSize" @click="setActivePost(post)">
+              <!-- <div @click="setActivePost(post)"> -->
+              <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
+                <img class="imgSize" :src="post.image">
+                <p>{{post.title}}</p>
+                <p class="card-text">{{post.rating}}</p>
+              </router-link>
             </div>
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -59,8 +60,8 @@
   }
 
   .borderBox {
-    border: black solid 1px;
-    box-shadow: 10px 10px 10px;
+    /* border: black solid 1px; */
+    /* box-shadow: 10px 10px 10px; */
     height: 13rem;
 
   }

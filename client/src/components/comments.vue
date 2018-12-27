@@ -41,9 +41,13 @@
       }
     },
     mounted() {
+      // console.log("active post data: ", this.postId._id)
+      // debugger
+      // this.$store.dispatch('getComments', this.activePost._id)
+    },
+    created() {
       debugger
-      this.$store.dispatch('getComments', this.postId)
-      // activePost._id
+      this.$store.dispatch('getComments', this.postId._id)
     },
     computed: {
       activePost() {
@@ -61,7 +65,7 @@
           postId: this.activePost._id
         }
         this.$store.dispatch('addComment', payload)
-
+        event.target.reset()
         // addComment() {
         // this.newComment.postId = this.postId
         // this.$store.dispatch('addComment', this.newComment);

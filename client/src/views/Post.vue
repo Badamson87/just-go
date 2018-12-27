@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-6">
         <h1>{{post.title}}</h1>
+        <h4>author name:{{post.creatorId}}</h4>
         <h4>{{post.location}}</h4>
         <h4>{{post.rating}}</h4>
         <p>{{post.description}}</p>
@@ -33,7 +34,8 @@
     <div class="row mt-5">
       <div class="col-12">
         <!-- do we want to build comments as a component or inside the the post view? -->
-        <comments v-bind:postId="post._id"></comments>
+        <comments :postId="post"></comments>
+        <!-- postId="post._id" -->
       </div>
     </div>
 
@@ -44,7 +46,7 @@
   import comments from '@/components/comments.vue'
   export default {
     name: 'post',
-    props: ['postId', "postData"],
+    // props: ['postId', "postData"],
     // components: {
     //   comments
     // },
@@ -104,9 +106,6 @@
     width: 43vw;
     padding-left: 1rem
   }
-<<<<<<< HEAD
-=======
 
   /* .owner {} */
->>>>>>> 8378d6e02997dd6bc7fdc6052613ce39b67b0346
 </style>
