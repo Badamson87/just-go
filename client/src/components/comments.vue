@@ -43,12 +43,11 @@
     mounted() {
       // console.log("active post data: ", this.postId._id)
       // debugger
-      // this.$store.dispatch('getComments', this.activePost._id)
+      this.$store.dispatch('getComments', this.postId)
     },
-    created() {
-      debugger
-      this.$store.dispatch('getComments', this.postId._id)
-    },
+    // created() {
+    //   this.$store.dispatch('getComments', this.postId._id)
+    // },
     computed: {
       activePost() {
         return this.$store.state.activePost

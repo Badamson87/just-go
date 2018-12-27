@@ -47,7 +47,7 @@ export default new Vuex.Store({
       state.user = {}
     },
     // setPostById(state, post) {
-    //   state.post = post
+    //   state.posts = post
     // }, 
     setBL(state, BL) {
       state.bucketLists = BL
@@ -181,7 +181,6 @@ export default new Vuex.Store({
     },
     //get comments for one specific post
     getComments({ commit, dispatch }, postId) {
-      debugger
       api.get('comments/' + postId)
         .then(res => {
           console.log('comments:', res.data)
