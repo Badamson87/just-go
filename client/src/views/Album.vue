@@ -5,8 +5,10 @@
 
     <div class="row">
       <div v-for="post in activeAlbum" class="col-3 my-3">
-        <div class="card cardSize">
-          <img class="imgSize" :src='post.image'>
+        <div class="card cardSize" @click="setActivePost(post)">
+          <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
+            <img class="imgSize" :src='post.image'>
+          </router-link>
           <p>{{post.title}}</p>
           <p>{{post.description}}</p>
           <button class="btn btn-info" @click="deletePost(post)">Delete</button>
@@ -37,6 +39,9 @@
     methods: {
       deletePost(postData) {
         this.$store.dispatch('deletePost', postData)
+      },
+      setActivePost(p) {
+        this.$store.commit('setPost', p)
       }
     },
     props: ["albumId"],
