@@ -1,14 +1,18 @@
 <template>
   <div class="container-fluid">
-   <PostForm></PostForm> 
+    <PostForm></PostForm>
+    <h5>Album Title Should Go Here</h5>
+
     <div class="row">
-          <div v-for="post in activeAlbum" class="col-3 my-3">
-              <div class="card cardSize">
-                <img class="imgSize" :src='post.image' >
-                <p>{{post.title}}</p>
-                <p>{{post.description}}</p>
-                <button @click="deletePost(post)">Delete</button>
-              </div>
+      <div v-for="post in activeAlbum" class="col-3 my-3">
+        <div class="card cardSize" @click="setActivePost(post)">
+          <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
+            <img class="imgSize" :src='post.image'>
+          </router-link>
+          <p>{{post.title}}</p>
+          <p>{{post.description}}</p>
+          <button class="btn btn-info" @click="deletePost(post)">Delete</button>
+        </div>
       </div>
     </div>
   </div>
@@ -33,8 +37,11 @@
 
     },
     methods: {
-      deletePost(postData){
+      deletePost(postData) {
         this.$store.dispatch('deletePost', postData)
+      },
+      setActivePost(p) {
+        this.$store.commit('setPost', p)
       }
     },
     props: ["albumId"],
@@ -46,13 +53,12 @@
 </script>
 
 <style>
+  .imgSize {
+    width: 100%;
+    margin-bottom: 4vh;
+  }
 
-.imgSize {
-  width: 100%;
-  margin-bottom: 4vh;
-}
-.cardSize {
-  height: 119%;
-}
-
+  .cardSize {
+    height: 100%;
+  }
 </style>

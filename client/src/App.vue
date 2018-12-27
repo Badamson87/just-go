@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav" class="mb-5">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#/">Just Go (logo)</a>
+        <a class="navbar-brand headerFont" href="#/">just go</a>
+        <!-- <a><img class="navbar-brand" src="/public/assets/just-go-logo.png"></a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -58,6 +59,10 @@
   #nav a {
     font-weight: bold;
     color: white;
+  }
+
+  .headerFont {
+    font-family: Thasadith;
   }
 
   #nav a.router-link-exact-active {

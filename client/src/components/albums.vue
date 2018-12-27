@@ -1,11 +1,12 @@
 <template>
   <div class="row">
     <div v-for="album in albums" class="col-3" :key="album._id">
-      <div  class="card m-1"> 
-        <button @click="deleteAlbum(album)">Delete</button>
+      <div class="card m-1">
         <router-link :to="{name: 'album', params: {albumId: album._id}}">
-        <p class="card-title">{{album.title}}</p>
-      </router-link>
+          <h6 class="card-title">{{album.title}}</h6>
+          <img src="">
+          <button class="btn btn-info" @click="deleteAlbum(album)">Delete</button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -28,10 +29,10 @@
       }
     },
     methods: {
-      getPostsByAlbumId(albumId){
+      getPostsByAlbumId(albumId) {
         this.$store.dispatch('getPostsByAlbumId', albumId)
       },
-      deleteAlbum(album){
+      deleteAlbum(album) {
         this.$store.dispatch('deleteAlbum', album)
       }
     },

@@ -17,6 +17,19 @@ router.post('/:postId', (req, res, next) => {
     })
 })
 
+// get all comments by post Id
+
+router.get('/:postId', (req, res, next) => {
+  Comment.find({ postId: req.params.postId })
+    .then(data => {
+      res.send(data)
+    })
+    .catch(err => {
+      console.log(err)
+      return res.status(400).send(err)
+    })
+})
+
 
 // Delete a comment by Id
 
@@ -37,17 +50,5 @@ router.delete('/:id', (req, res, next) => {
 })
 
 
-// get all comments by post Id
-
-router.get('/:postId', (req, res, next) => {
-  Comment.find({})
-    .then(data => {
-      res.send(data)
-    })
-    .catch(err => {
-      console.log(err)
-      return res.status(400).send(err)
-    })
-})
 
 module.exports = router
