@@ -2,27 +2,28 @@
   <div class="Home container-fluid">
     <div class="row">
       <div class="col-12">
+        <input type="text" v-model="search" class="form-control" placeholder="search posts" />
         <h5>All Posts</h5>
 
         <div class="row">
           <!-- <div class="allPosts col-12"> -->
-          <div v-for="post in posts" :key="post._id" class="col-3 my-2">
-            <!-- <div class="card"> -->
-            <div class="card cardSize" @click="setActivePost(post)">
-              <!-- <div @click="setActivePost(post)"> -->
+          <!-- <div class="card"> -->
+          <!-- <div @click="setActivePost(post)"> -->
+          <div v-for="post in filteredPosts " :key="post._id" class="col-3 my-2">
+            <div class="card cardSize">
               <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
                 <img class="imgSize" :src="post.image">
                 <p>{{post.title}}</p>
-                <p class="card-text">{{post.rating}}</p>
               </router-link>
+              <p class="card-text">{{post.rating}}</p>
             </div>
-            <!-- </div> -->
-            <!-- </div> -->
-            <!-- </div> -->
           </div>
         </div>
       </div>
     </div>
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
 
   </div>
 </template>
@@ -32,7 +33,7 @@
     name: 'Home',
     data() {
       return {
-
+        search: ''
       }
     },
     mounted() {
@@ -41,12 +42,18 @@
     computed: {
       posts() {
         return this.$store.state.posts
+      },
+      filteredPosts: function () {
+        return this.posts.filter((post) => {
+          return post.title.match(this.search)
+        })
       }
     },
     methods: {
-      setActivePost(p) {
-        this.$store.commit('setPost', p)
-      }
+      // setActivePost(p) {
+      //   debugger
+      //   this.$store.commit('setPost', p)
+      // }
     }
   }
 
