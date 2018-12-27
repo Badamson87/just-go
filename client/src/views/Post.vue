@@ -86,7 +86,6 @@
     // }
     components: {
       comments
-<<<<<<< HEAD
       // addToBucket(albumId) {
       //   let payload = {
       //     postId: this.post._id,
@@ -96,19 +95,7 @@
       //     this.$store.dispatch('addToBucket', { payload })
       //   }
     }
-=======
-    },
->>>>>>> c0c4d4de25bcf312e5692cc9deeedcb413c60ab7
   }
-
-//NOT SURE WHAT THIS CODE BELONGED TOO -KS
-//   addToBucket(albumId) {
-    //     let payload = {
-    //       postId: this.post._id,
-    //       // postData: this.postData
-    //     }
-    //     console.log(payload)
-    //     this.$store.dispatch('addToBucket', { payload })
 
 
 </script>
