@@ -42,7 +42,7 @@
     },
     mounted() {
       // console.log("active post data: ", this.postId._id)
-      // debugger
+
       this.$store.dispatch('getComments', this.postId)
     },
     // created() {
@@ -54,6 +54,11 @@
       },
       comments() {
         return this.$store.state.comments
+      }
+    },
+    watch: {
+      postId(val) {
+        this.$store.dispatch('getComments', this.postId)
       }
     },
     methods: {

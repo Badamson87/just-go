@@ -24,7 +24,7 @@ export default new Vuex.Store({
     posts: [],
     activeAlbum: {},
     bucketLists: [],
-    comments: []
+    comments: [],
   },
 
   mutations: {
@@ -52,27 +52,17 @@ export default new Vuex.Store({
     setBL(state, BL) {
       state.bucketLists = BL
     },
-    setComment(state, comment) {
-      state.comments = comment
+    setComment(state, payload) {
+      state.comments = payload
+      // Vue.set(state.comments, payload.postId, payload.comments)
+    },
+    setActiveComments(state, payload) {
+      // state.activeComments = activeComments
+      Vue.set(state.comments, payload.postId, payload.comments)
     }
 
   },
   actions: {
-    // comments
-    //   addComment({ commit, dispatch}, commentData) {
-    //     api.post('comments/' + commentData.postId)
-    //     .then(res=> {
-    //         commit('setComment', res.data)
-    //         console.log(res.data)
-    //         dispatch('getComments', commentData.postId)
-    //     })
-    // },
-    // getComments({ commit, dispatch}, postId) {
-    //   api.get('comments/' + postId)
-    //   .then(res=> {
-    //     commit('setComment', res.data)
-    //   })
-    // },
 
     //posts
     createPost({ commit, dispatch }, formData) {
@@ -183,11 +173,14 @@ export default new Vuex.Store({
     getComments({ commit, dispatch }, postId) {
       api.get('comments/' + postId)
         .then(res => {
-          console.log('comments:', res.data)
+          // let payload = {
+          //   postId: postId,
+          //   comments: res.data
+          // }
           commit('setComment', res.data)
         })
     },
-
+    setActivePost() { },
 
     // auth 
     register({ commit, dispatch }, newUser) {
