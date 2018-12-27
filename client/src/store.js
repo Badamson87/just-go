@@ -124,14 +124,14 @@ export default new Vuex.Store({
           dispatch('getBL', res.data)
         })
     },
-    // addToBucket({ commit, dispatch }, payload) {
-    //   debugger
-    //   api.post('/clone' + payload)
-    //     .then(res => {
-    //       console.log(res)
-    //       dispatch('getBL')
-    //     })
-    // },
+    addToBucket({ commit, dispatch }, payload) {
+      debugger
+      api.post('/clone' + payload)
+        .then(res => {
+          console.log(res)
+          dispatch('getBL')
+        })
+    },
 
     //albums
     getAlbums({ commit, dispatch }, authorId) {

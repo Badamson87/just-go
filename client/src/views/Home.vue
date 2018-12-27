@@ -2,10 +2,11 @@
   <div class="Home container-fluid">
     <div class="row">
       <div class="col-12">
+        <input type="text" v-model="search" class="form-control" placeholder="search posts" />
         <h5>All Posts</h5>
         <div class="row">
           <div class="allPosts col-12">
-            <div v-for="post in posts" :key="post._id" class="col-3 my-4">
+            <div v-for="post in filteredPosts" :key="post._id" class="col-3 my-4">
               <div class="card">
                 <div class="card-body borderBox">
                   <div @click="setActivePost(post)">

@@ -2,8 +2,10 @@
   <div class="post container">
     <div class="row">
       <div class="col-6">
+        <p>{{album.title}}</p>
         <h1>{{post.title}}</h1>
         <h4>author name:{{post.creatorId}}</h4>
+        <!-- <h4>{{user.name}}</h4> -->
         <h4>{{post.location}}</h4>
         <h4>{{post.rating}}</h4>
         <p>{{post.description}}</p>
@@ -20,14 +22,17 @@
                 aria-haspopup="true" aria-expanded="false">Add to bucket
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList)"
+                <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList._id)"
                   :albumData="album" v-bind:value="bucketList._id">{{bucketList.title}}</p>
               </div>
             </div>
+
             <button class="btn btn-info" @click="">Album</button>
             <button class="btn btn-info" @click="">Follow</button>
           </div>
+
         </div>
+
         <img class="image" :src="post.image">
       </div>
     </div>
@@ -78,22 +83,20 @@
         this.$store.dispatch('deletePost', this.postId)
       },
     },
+    addToBucket(albumId) {
+      debugger
+      let payload = {
+        postId: this.post._id,
+        postData: this.postData
+      }
+      console.log(payload)
+      this.$store.dispatch('addToBucket', { payload })
+    },
     // editPost() {
     //   this.$store.dispatch('editPost', postId)
     // },
-    // addToBucket(){
-    //   this.$store.
-    // }
     components: {
       comments
-      // addToBucket(albumId) {
-      //   let payload = {
-      //     postId: this.post._id,
-      // postData: this.postData
-      //     }
-      //     console.log(payload)
-      //     this.$store.dispatch('addToBucket', { payload })
-      //   }
     }
   }
 
@@ -104,6 +107,10 @@
   .image {
     width: 43vw;
     padding-left: 1rem
+  }
+
+  .action {
+    cursor: pointer;
   }
 
   /* .owner {} */
