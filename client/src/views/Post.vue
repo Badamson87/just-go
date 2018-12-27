@@ -46,7 +46,7 @@
   import comments from '@/components/comments.vue'
   export default {
     name: 'post',
-    // props: ['postId', "postData"],
+    props: ['postId', "postData"],
     // components: {
     //   comments
     // },
