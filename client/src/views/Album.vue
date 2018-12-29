@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <PostForm></PostForm>
-    <h5>Album Title Should Go Here</h5>
+    <h5>{{activeAlbum.title}}</h5>
 
     <div class="row">
       <div v-for="post in activeAlbum" class="col-3 my-3">
@@ -33,7 +33,7 @@
     computed: {
       activeAlbum() {
         return this.$store.state.activeAlbum
-      }
+      },
 
     },
     methods: {

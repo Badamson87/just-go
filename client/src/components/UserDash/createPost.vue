@@ -17,7 +17,6 @@
         <input class="form-control" type="text" v-model="formData.image" placeholder="Image URL">
         <button type="submit" class="btn btn-danger">Create</button>
       </div>
-      {{formData.title}}
     </form>
   </div>
 </template>
