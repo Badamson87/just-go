@@ -59,8 +59,8 @@ router.put('/:id', (req, res, next) => {
 //bucketlist
 
 router.get('/bucketlists', (req, res, next) => {
-  Albums.find({isBucketlist: true, authorId: req.session.uid})
-    .then (data => {
+  Albums.find({ isBucketlist: true, authorId: req.session.uid })
+    .then(data => {
       res.send(data)
     })
     .catch(err => {
@@ -78,13 +78,13 @@ router.get('/:id', (req, res, next) => {
       }
       res.send(newAlbum)
     })
-  // .then(data => {
-  //   res.send(data)
-  // })
-  .catch(err => {
-    console.log(err)
-    res.status(400).send(err)
-  })
+    // .then(data => {
+    //   res.send(data)
+    // })
+    .catch(err => {
+      console.log(err)
+      res.status(400).send(err)
+    })
 })
 
 
@@ -95,7 +95,6 @@ router.get('/user/:authorId', (req, res, next) => {
       res.send(data)
     })
     .catch(err => {
-      console.log(err)
       res.status(400).send(err)
     })
 })

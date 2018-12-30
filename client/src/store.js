@@ -137,7 +137,6 @@ export default new Vuex.Store({
         })
     },
     addToBucket({ commit, dispatch }, payload) {
-      debugger
       api.post('/clone' + payload)
         .then(res => {
           console.log(res)
@@ -148,7 +147,6 @@ export default new Vuex.Store({
     //albums
     // @ts-ignore
     getAlbums({ commit, dispatch }, data) {
-      debugger
       api.get('albums/user/' + data.authorId)
         .then(res => {
           console.log('albums: ', res)
@@ -157,7 +155,6 @@ export default new Vuex.Store({
     },
     // @ts-ignore
     addAlbum({ commit, dispatch }, albumData) {
-      debugger
       api.post('albums', albumData)
         .then(res => {
           // commit('setAlbums', res.data)

@@ -6,7 +6,7 @@
         <label for="selectedAlbum">Create Post</label>
 
         <select class="form-control" v-model="formData.albumId" id="selectedAlbum">
-          <option v-for="album in albums" :key="albums._id" v-bind:value="album._id">{{album.title}}</option>
+          <option v-for="album in albums" :key="albums._id" v-bind:value="album._id">Title Here</option>
         </select>
 
         <input class="form-control" type="text" placeholder="Title" v-model="formData.title">
