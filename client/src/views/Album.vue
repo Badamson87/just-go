@@ -7,9 +7,10 @@
       <div v-for="post in activeAlbum" class="col-3 my-3">
         <div class="card cardSize" @click="setActivePost(post)">
           <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
-            <img class="imgSize" :src='post.image'>
+            <img class="card-img-top" :src='post.image'>
           </router-link>
           <p>{{post.title}}</p>
+          <p>{{post.location}}</p>
           <p>{{post.description}}</p>
           <button class="btn btn-info" @click="deletePost(post)">Delete</button>
         </div>
@@ -56,6 +57,8 @@
   .imgSize {
     width: 100%;
     margin-bottom: 4vh;
+    object-fit: contain;
+    max-height: 25vh;
   }
 
   .cardSize {

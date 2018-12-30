@@ -2,8 +2,8 @@
   <div class="post container">
     <div class="row">
       <div class="col-6">
-        <!-- <p>{{album.title}}</p> -->
         <h1>{{post.title}}</h1>
+        <p>Album Title Here</p>
         <h4>author name:{{post.creatorId}}</h4>
         <!-- <h4>{{user.name}}</h4> -->
         <h4>{{post.location}}</h4>
@@ -61,7 +61,6 @@
     },
     mounted() {
       if (!this.post._id) {
-        debugger
         this.$store.dispatch("getPostById", this.$route.params.postId)
       }
       this.$store.dispatch('getBL')

@@ -3,7 +3,8 @@
     <div class="row">
       <div class="col-12">
         <input type="text" v-model="search" class="form-control" placeholder="search posts" />
-        <h5>All Posts</h5>
+
+        <!-- <h5>All Posts</h5>
         <div class="row">
           <div class="allPosts col-12">
             <div v-for="post in filteredPosts" :key="post._id" class="col-3 my-4">
@@ -18,6 +19,20 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+        <div class="row">
+          <div v-for="post in filteredPosts" class="col-3 my-3">
+            <div class="card cardSize" @click="setActivePost(post)">
+              <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
+                <img class="imgSize" :src='post.image'>
+              </router-link>
+              <p>{{post.title}}</p>
+              <p>{{post.location}}</p>
             </div>
           </div>
         </div>
@@ -66,14 +81,16 @@
   }
 
   .borderBox {
-    /* border: black solid 1px; */
-    /* box-shadow: 10px 10px 10px; */
     height: 13rem;
-
   }
 
   .img-fluid {
     max-width: 100%;
     max-height: 8rem
+  }
+
+  .imgBox {
+    height: 25px;
+    width: 25px;
   }
 </style>

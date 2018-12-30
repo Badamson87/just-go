@@ -21,7 +21,6 @@
       <div class="commentStyle row">
         <h6 class="col-12 commentSpacing">{{comment.title}}</h6>
         <p class="col-12 commentSpacing">{{comment.creatorId}}</p>
-        <p>POST ID: {{comment.postId}}</p>
         <!-- need to change creatorId to user-> userName -->
         <p class="col-12 commentSpacing">{{comment.description}}</p>
       </div>
