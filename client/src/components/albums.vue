@@ -37,7 +37,12 @@
       }
     },
     mounted() {
-
+      this.$store.dispatch("getAlbums2", this.user._id)
+    },
+    watch: {
+      user(val) {
+        this.$store.dispatch('getAlbums2', this.user._id)
+      }
     },
   }
 

@@ -153,6 +153,13 @@ export default new Vuex.Store({
           commit('setAlbums', res.data)
         })
     },
+    getAlbums2({ commit, dispatch }, id) {
+      api.get('albums/user/' + id)
+        .then(res => {
+          console.log('albums: ', res)
+          commit('setAlbums', res.data)
+        })
+    },
     // @ts-ignore
     addAlbum({ commit, dispatch }, albumData) {
       api.post('albums', albumData)
@@ -214,6 +221,7 @@ export default new Vuex.Store({
     authenticate({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
+          console.log('user data:', res.data)
           commit('setUser', res.data)
           dispatch('getAlbums', res.data._id)
         })

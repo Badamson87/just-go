@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid">
-    <PostForm></PostForm>
+    <PostForm v-if="user._id === activeAlbum.creatorId"></PostForm>
+    <!-- v-if here -->
     <h5>{{activeAlbum.title}}</h5>
 
     <div class="row">
@@ -13,6 +14,7 @@
           <p>{{post.location}}</p>
           <p>{{post.description}}</p>
           <button class="btn btn-info" @click="deletePost(post)">Delete</button>
+          <!-- add v-if here to be able to delete if they are te user -->
         </div>
       </div>
     </div>
@@ -35,6 +37,9 @@
       activeAlbum() {
         return this.$store.state.activeAlbum
       },
+      user() {
+        return this.$store.state.user
+      }
 
     },
     methods: {

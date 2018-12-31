@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-6">
         <h1>{{post.title}}</h1>
-        <p>Album Title Here</p>
+        <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
+          <p>Album Title Here</p>
+        </router-link>
         <h4>author name:{{post.creatorId}}</h4>
         <!-- <h4>{{user.name}}</h4> -->
         <h4>{{post.location}}</h4>
