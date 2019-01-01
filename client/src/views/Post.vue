@@ -6,7 +6,9 @@
         <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
           <p>Album Title Here</p>
         </router-link>
-        <h4>author name:{{post.creatorId}}</h4>
+        <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
+          <h4>Author User</h4>
+        </router-link>
         <!-- <h4>{{user.name}}</h4> -->
         <h4>{{post.location}}</h4>
         <h4>{{post.rating}}</h4>
@@ -40,7 +42,6 @@
     </div>
     <div class="row mt-5">
       <div class="col-12">
-        <!-- do we want to build comments as a component or inside the the post view? -->
         <comments v-bind:postId="post._id"></comments>
         <!-- postId="post._id" -->
       </div>

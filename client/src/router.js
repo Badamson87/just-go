@@ -10,6 +10,8 @@ import Album from './views/Album.vue'
 import Post from './views/Post.vue'
 // @ts-ignore
 import userDash from './views/userDash.vue'
+// @ts-ignore
+import Profile from './views/Profile.vue'
 
 Vue.use(Router)
 
@@ -19,6 +21,12 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
+      props: true
     },
     {
       path: '/auth',

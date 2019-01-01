@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
-    <PostForm v-if="user._id === activeAlbum.creatorId"></PostForm>
-    <!-- v-if here -->
+    <PostForm></PostForm>
+    <!-- v-if here -- v-if="user._id === activeAlbum.creatorId"-->
     <h5>{{activeAlbum.title}}</h5>
 
     <div class="row">

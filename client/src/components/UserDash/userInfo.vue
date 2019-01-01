@@ -1,5 +1,5 @@
 <template>
-  <div class="userInfo card cardBorder offset-2">
+  <div class="userInfo card cardBorder">
     <p>User Info</p>
     <div class="imgCard">
       <img class="userImg" :src="user.image" />
