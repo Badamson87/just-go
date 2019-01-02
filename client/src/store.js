@@ -165,7 +165,7 @@ export default new Vuex.Store({
     addAlbum({ commit, dispatch }, albumData) {
       api.post('albums', albumData)
         .then(res => {
-          // commit('setAlbums', res.data)
+          commit('setAlbums', res.data)
           dispatch('getAlbums', res.data)
         })
     },

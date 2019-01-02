@@ -31,13 +31,17 @@
           location: '',
           description: '',
           image: '',
-          albumId: ''
+          albumId: '',
+          // creatorName: this.user.name
         }
       }
     },
     computed: {
       albums() {
         return this.$store.state.albums
+      },
+      user() {
+        return this.$store.state.user
       }
 
     },
