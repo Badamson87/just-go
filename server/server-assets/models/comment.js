@@ -5,7 +5,7 @@ let schemaName = 'Comment'
 
 
 let schema = new Schema({
-  title: { type: String, required: true },
+  title: { type: String },
   description: { type: String, required: true },
   postId: { type: ObjectId, ref: "Post", required: true },
   creatorId: { type: ObjectId, ref: "User" },

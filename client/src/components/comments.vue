@@ -4,9 +4,6 @@
       <div class="row">
         <h5>Add Comment</h5>
       </div>
-      <div class="row">
-        <input class="col-12 form-control" v-model="commentData.title" type="text" placeholder="Comment Title">
-      </div>
       <div class="row form-group">
         <textarea class="col-12 form-control" v-model="commentData.description" type="text" placeholder="Comment Here"></textarea>
       </div>
@@ -19,8 +16,7 @@
     </div>
     <div v-for="comment in comments">
       <div class="commentStyle row">
-        <p class="col-12 commentSpacing">User- {{comment.creatorName}}</p>
-        <h5 class="col-12 commentSpacing">{{comment.title}}</h5>
+        <h6 class="col-12 commentSpacing">{{comment.creatorName}}</h6>
         <!-- need to change creatorId to user-> userName -->
         <p class="col-12 commentSpacing">{{comment.description}}</p>
       </div>
