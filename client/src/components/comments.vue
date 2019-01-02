@@ -19,8 +19,8 @@
     </div>
     <div v-for="comment in comments">
       <div class="commentStyle row">
-        <h6 class="col-12 commentSpacing">{{comment.title}}</h6>
-        <p class="col-12 commentSpacing">{{comment.creatorId}}</p>
+        <p class="col-12 commentSpacing">User- {{comment.creatorName}}</p>
+        <h5 class="col-12 commentSpacing">{{comment.title}}</h5>
         <!-- need to change creatorId to user-> userName -->
         <p class="col-12 commentSpacing">{{comment.description}}</p>
       </div>
@@ -41,7 +41,6 @@
     },
     mounted() {
       // console.log("active post data: ", this.postId._id)
-
       this.$store.dispatch('getComments', this.postId)
     },
     // created() {
@@ -53,6 +52,9 @@
       },
       comments() {
         return this.$store.state.comments
+      },
+      user() {
+        return this.$store.state.user
       }
     },
     watch: {
@@ -62,10 +64,12 @@
     },
     methods: {
       addComment() {
+        debugger
         let payload = {
           title: this.commentData.title,
           description: this.commentData.description,
-          postId: this.activePost._id
+          postId: this.activePost._id,
+          creatorName: this.user.name
         }
         this.$store.dispatch('addComment', payload)
         event.target.reset()
