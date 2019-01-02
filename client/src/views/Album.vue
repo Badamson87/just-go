@@ -2,6 +2,9 @@
   <div class="container-fluid">
     <PostForm v-if="activeAlbum[0].creatorId == user._id || {}"></PostForm>
     <!-- v-if here -- v-if="user._id === activeAlbum.creatorId"-->
+    <div v-else>
+      <h4>You have no posts in this album</h4>
+    </div>
     <h5>{{activeAlbum.title}}</h5>
 
     <div class="row">
@@ -40,10 +43,6 @@
       user() {
         return this.$store.state.user
       },
-      album() {
-
-      }
-
     },
     methods: {
       deletePost(postData) {
