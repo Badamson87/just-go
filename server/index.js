@@ -55,6 +55,8 @@ server.use('/api/comments', commentRoutes)
 let postRoutes = require('./server-assets/routes/post')
 server.use('/api/posts', postRoutes)
 
+// let profileRoutes = require('./server-assets/routes/users')
+// server.use('/api/users', profileRoutes)
 
 //Catch all
 server.get('*', (req, res, next) => {

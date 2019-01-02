@@ -1,14 +1,20 @@
 <template>
   <div class="container-fluid">
     <PostForm></PostForm>
-    <h5>Album Title Should Go Here</h5>
+    <!-- v-if here -- v-if="user._id === activeAlbum.creatorId"-->
+    <h5>{{activeAlbum.title}}</h5>
+
     <div class="row">
       <div v-for="post in activeAlbum" class="col-3 my-3">
-        <div class="card cardSize">
-          <img class="imgSize" :src='post.image'>
+        <div class="card cardSize" @click="setActivePost(post)">
+          <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
+            <img class="card-img-top" :src='post.image'>
+          </router-link>
           <p>{{post.title}}</p>
+          <p>{{post.location}}</p>
           <p>{{post.description}}</p>
           <button class="btn btn-info" @click="deletePost(post)">Delete</button>
+          <!-- add v-if here to be able to delete if they are te user -->
         </div>
       </div>
     </div>
@@ -30,12 +36,18 @@
     computed: {
       activeAlbum() {
         return this.$store.state.activeAlbum
+      },
+      user() {
+        return this.$store.state.user
       }
 
     },
     methods: {
       deletePost(postData) {
         this.$store.dispatch('deletePost', postData)
+      },
+      setActivePost(p) {
+        this.$store.commit('setPost', p)
       }
     },
     props: ["albumId"],
@@ -50,6 +62,8 @@
   .imgSize {
     width: 100%;
     margin-bottom: 4vh;
+    object-fit: contain;
+    max-height: 25vh;
   }
 
   .cardSize {

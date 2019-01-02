@@ -21,7 +21,6 @@
       <div class="commentStyle row">
         <h6 class="col-12 commentSpacing">{{comment.title}}</h6>
         <p class="col-12 commentSpacing">{{comment.creatorId}}</p>
-        <p>POST ID: {{comment.postId}}</p>
         <!-- need to change creatorId to user-> userName -->
         <p class="col-12 commentSpacing">{{comment.description}}</p>
       </div>
@@ -41,16 +40,24 @@
       }
     },
     mounted() {
-      debugger
+      // console.log("active post data: ", this.postId._id)
+
       this.$store.dispatch('getComments', this.postId)
-      // activePost._id
     },
+    // created() {
+    //   this.$store.dispatch('getComments', this.postId._id)
+    // },
     computed: {
       activePost() {
         return this.$store.state.activePost
       },
       comments() {
         return this.$store.state.comments
+      }
+    },
+    watch: {
+      postId(val) {
+        this.$store.dispatch('getComments', this.postId)
       }
     },
     methods: {
@@ -61,7 +68,7 @@
           postId: this.activePost._id
         }
         this.$store.dispatch('addComment', payload)
-
+        event.target.reset()
         // addComment() {
         // this.newComment.postId = this.postId
         // this.$store.dispatch('addComment', this.newComment);

@@ -3,6 +3,13 @@
     <div class="row">
       <div class="col-6">
         <h1>{{post.title}}</h1>
+        <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
+          <p>Album Title Here</p>
+        </router-link>
+        <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
+          <h4>Author User</h4>
+        </router-link>
+        <!-- <h4>{{user.name}}</h4> -->
         <h4>{{post.location}}</h4>
         <h4>{{post.rating}}</h4>
         <p>{{post.description}}</p>
@@ -19,21 +26,24 @@
                 aria-haspopup="true" aria-expanded="false">Add to bucket
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList)"
+                <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList._id)"
                   :albumData="album" v-bind:value="bucketList._id">{{bucketList.title}}</p>
               </div>
             </div>
+
             <button class="btn btn-info" @click="">Album</button>
             <button class="btn btn-info" @click="">Follow</button>
           </div>
+
         </div>
+
         <img class="image" :src="post.image">
       </div>
     </div>
     <div class="row mt-5">
       <div class="col-12">
-        <!-- do we want to build comments as a component or inside the the post view? -->
         <comments v-bind:postId="post._id"></comments>
+        <!-- postId="post._id" -->
       </div>
     </div>
 
@@ -76,25 +86,21 @@
         this.$store.dispatch('deletePost', this.postId)
       },
     },
+    addToBucket(albumId) {
+      let payload = {
+        postId: this.post._id,
+        postData: this.postData
+      }
+      console.log(payload)
+      this.$store.dispatch('addToBucket', { payload })
+    },
     // editPost() {
     //   this.$store.dispatch('editPost', postId)
     // },
-    // addToBucket(){
-    //   this.$store.
-    // }
     components: {
       comments
-    },
+    }
   }
-
-//NOT SURE WHAT THIS CODE BELONGED TOO -KS
-//   addToBucket(albumId) {
-    //     let payload = {
-    //       postId: this.post._id,
-    //       // postData: this.postData
-    //     }
-    //     console.log(payload)
-    //     this.$store.dispatch('addToBucket', { payload })
 
 
 </script>
@@ -104,6 +110,13 @@
     width: 43vw;
     padding-left: 1rem
   }
+<<<<<<< HEAD
+=======
+
+  .action {
+    cursor: pointer;
+  }
+>>>>>>> eb1a138423f7e075b34bb392864675b9b7619de3
 
   /* .owner {} */
 </style>

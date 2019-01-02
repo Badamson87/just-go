@@ -3,7 +3,7 @@
     <form @submit.prevent="addAlbum">
       <label for="">Create Album</label>
       <input class="form-control" type="text" placeholder="Album Name" v-model="newAlbum.title">
-      <button class="btn btn-danger" type="submit">Create</button>
+      <button class="btn btn-sm mt-1 btn-danger" type="submit">Create</button>
     </form>
   </div>
 </template>

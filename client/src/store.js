@@ -1,6 +1,9 @@
+// @ts-ignore
 import Vue from 'vue'
+// @ts-ignore
 import Vuex from 'vuex'
 import router from './router'
+// @ts-ignore
 import Axios from 'axios'
 
 Vue.use(Vuex)
@@ -24,7 +27,7 @@ export default new Vuex.Store({
     posts: [],
     activeAlbum: {},
     bucketLists: [],
-    comments: []
+    comments: [],
   },
 
   mutations: {
@@ -47,34 +50,25 @@ export default new Vuex.Store({
       state.user = {}
     },
     // setPostById(state, post) {
-    //   state.post = post
+    //   state.posts = post
     // }, 
     setBL(state, BL) {
       state.bucketLists = BL
     },
-    setComment(state, comment) {
-      state.comments = comment
+    setComment(state, payload) {
+      state.comments = payload
+      // Vue.set(state.comments, payload.postId, payload.comments)
+    },
+    setActiveComments(state, payload) {
+      // state.activeComments = activeComments
+      Vue.set(state.comments, payload.postId, payload.comments)
     }
 
   },
   actions: {
-    // comments
-    //   addComment({ commit, dispatch}, commentData) {
-    //     api.post('comments/' + commentData.postId)
-    //     .then(res=> {
-    //         commit('setComment', res.data)
-    //         console.log(res.data)
-    //         dispatch('getComments', commentData.postId)
-    //     })
-    // },
-    // getComments({ commit, dispatch}, postId) {
-    //   api.get('comments/' + postId)
-    //   .then(res=> {
-    //     commit('setComment', res.data)
-    //   })
-    // },
 
     //posts
+    // @ts-ignore
     createPost({ commit, dispatch }, formData) {
       api.post('posts', formData)
         .then(res => {
@@ -84,12 +78,14 @@ export default new Vuex.Store({
           // dispatch("editAlbum", res.data.data.albumId)
         })
     },
+    // @ts-ignore
     getPostById({ commit, dispatch }, postId) {
       api.get('posts/' + postId)
         .then(res => {
           commit('setPost', res.data)
         })
     },
+    // @ts-ignore
     getAllPosts({ commit, dispatch }) {
       api.get('posts/')
         .then(res => {
@@ -98,6 +94,7 @@ export default new Vuex.Store({
         })
     },
     //get post by album id
+    // @ts-ignore
     getPostsByAlbumId({ commit, dispatch }, albumId) {
       api.get("posts/album/" + albumId)
         .then(res => {
@@ -106,8 +103,10 @@ export default new Vuex.Store({
           // router.push({name:'album'})
         })
     },
+    // @ts-ignore
     deletePost({ commit, dispatch }, postData) {
       api.delete('posts/' + postData._id)
+        // @ts-ignore
         .then(res => {
           dispatch('getPostsByAlbumId', postData.albumId)
         })
@@ -115,6 +114,7 @@ export default new Vuex.Store({
 
     //bucket list
 
+    // @ts-ignore
     createBL({ commit, dispatch }, bucketListData) {
       api.post('albums', bucketListData)
         .then(res => {
@@ -122,42 +122,53 @@ export default new Vuex.Store({
           dispatch('getBL', res.data.authorId)
         })
     },
+    // @ts-ignore
     getBL({ commit, dispatch }) {
       api.get('albums/bucketlists/')
         .then(res => {
           commit('setBL', res.data)
         })
     },
+    // @ts-ignore
     deleteBL({ commit, dispatch }, bucketList) {
       api.delete('albums/' + bucketList._id)
         .then(res => {
           dispatch('getBL', res.data)
         })
     },
-    // addToBucket({ commit, dispatch }, payload) {
-    //   debugger
-    //   api.post('/clone' + payload)
-    //     .then(res => {
-    //       console.log(res)
-    //       dispatch('getBL')
-    //     })
-    // },
+    addToBucket({ commit, dispatch }, payload) {
+      api.post('/clone' + payload)
+        .then(res => {
+          console.log(res)
+          dispatch('getBL')
+        })
+    },
 
     //albums
-    getAlbums({ commit, dispatch }, authorId) {
-      api.get('albums/user/' + authorId)
+    // @ts-ignore
+    getAlbums({ commit, dispatch }, data) {
+      api.get('albums/user/' + data.authorId)
         .then(res => {
           console.log('albums: ', res)
           commit('setAlbums', res.data)
         })
     },
+    getAlbums2({ commit, dispatch }, id) {
+      api.get('albums/user/' + id)
+        .then(res => {
+          console.log('albums: ', res)
+          commit('setAlbums', res.data)
+        })
+    },
+    // @ts-ignore
     addAlbum({ commit, dispatch }, albumData) {
       api.post('albums', albumData)
         .then(res => {
           // commit('setAlbums', res.data)
-          dispatch('getAlbums', res.data.authorId)
+          dispatch('getAlbums', res.data)
         })
     },
+    // @ts-ignore
     editAlbum({ commit, dispatch }, albumId) {
       api.put('albums/' + albumId)
         .then(res => {
@@ -165,32 +176,40 @@ export default new Vuex.Store({
           dispatch('getAlbums', res.data.authorId)
         })
     },
+    // @ts-ignore
     deleteAlbum({ commit, dispatch }, album) {
       api.delete('albums/' + album._id)
+        // @ts-ignore
         .then(res => {
           dispatch('getAlbums', album.authorId)
         })
     },
 
     // comments
+    // @ts-ignore
     addComment({ commit, dispatch }, commentData) {
       api.post('comments/' + commentData.postId, commentData)
+        // @ts-ignore
         .then(res => {
           dispatch('getComments', commentData.postId)
         })
     },
     //get comments for one specific post
+    // @ts-ignore
     getComments({ commit, dispatch }, postId) {
-      debugger
       api.get('comments/' + postId)
         .then(res => {
-          console.log('comments:', res.data)
+          // let payload = {
+          //   postId: postId,
+          //   comments: res.data
+          // }
           commit('setComment', res.data)
         })
     },
-
+    setActivePost() { },
 
     // auth 
+    // @ts-ignore
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)
         .then(res => {
@@ -198,17 +217,21 @@ export default new Vuex.Store({
           router.push({ name: 'userDash' })
         })
     },
+    // @ts-ignore
     authenticate({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
+          console.log('user data:', res.data)
           commit('setUser', res.data)
           dispatch('getAlbums', res.data._id)
         })
+        // @ts-ignore
         .catch(err => {
           console.error('Please Login')
           router.push({ name: 'auth' })
         })
     },
+    // @ts-ignore
     login({ commit, dispatch }, creds) {
       auth.post('login', creds)
         .then(res => {
@@ -217,8 +240,10 @@ export default new Vuex.Store({
           router.push({ name: 'userDash' })
         })
     },
+    // @ts-ignore
     logout({ commit, dispatch }) {
       auth.delete('logout')
+        // @ts-ignore
         .then(res => {
           commit('logout')
         })
