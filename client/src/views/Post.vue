@@ -7,7 +7,7 @@
           <p>Album Title Here</p>
         </router-link>
         <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
-          <h4>Author User</h4>
+          <h4>{{post.creatorName}}</h4>
         </router-link>
         <!-- <h4>{{user.name}}</h4> -->
         <h4>{{post.location}}</h4>
