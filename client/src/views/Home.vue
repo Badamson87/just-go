@@ -6,8 +6,6 @@
         <li v-show="'search'.includes(searchInLowerCase)">
         </li>
 
-
-
         <!-- <h5>All Posts</h5>
           <div class="row">
             <div class="allPosts col-12">
