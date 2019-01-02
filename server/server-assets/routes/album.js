@@ -57,7 +57,6 @@ router.put('/:id', (req, res, next) => {
 
 
 //bucketlist
-
 router.get('/bucketlists', (req, res, next) => {
   Albums.find({ isBucketlist: true, authorId: req.session.uid })
     .then(data => {

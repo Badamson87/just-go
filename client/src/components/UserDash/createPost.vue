@@ -50,7 +50,6 @@
     methods: {
       test() { console.log('working') },
       setActiveAlbum(album) {
-        debugger
         this.$store.commit('setActiveAlbum', album)
       },
       createPost() {

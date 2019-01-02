@@ -26,6 +26,7 @@ let schema = new Schema({
   flags: [flag],
   location: { type: String, required: true },
   albumId: { type: ObjectId, ref: "Album", required: true },
+  albumName: { type: String, required: true },
   isPrivate: { type: Boolean, required: true, default: false },
   isBucketlist: { type: Boolean, required: true, default: false }
 }, { timestamps: true })

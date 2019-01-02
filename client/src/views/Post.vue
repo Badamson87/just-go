@@ -4,7 +4,7 @@
       <div class="col-6">
         <h1>{{post.title}}</h1>
         <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
-          <p>Album Title Here</p>
+          <p>{{post.albumName}}</p>
         </router-link>
         <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
           <h4>{{post.creatorName}}</h4>
