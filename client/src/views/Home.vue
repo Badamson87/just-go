@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-12">
         <input type="text" v-model="search" class="form-control" placeholder="search posts" />
-        <!-- <li v-show="'search'.includes(searchInLowerCase)'">
-        </li> -->
+        <li v-show="'search'.includes(searchInLowerCase)">
+        </li>
 
 
 
