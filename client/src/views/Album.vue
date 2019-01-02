@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <PostForm v-if="activeAlbum[0].creatorId == user._id"></PostForm>
+    <PostForm v-if="activeAlbum[0].creatorId == user._id || {}"></PostForm>
     <!-- v-if here -- v-if="user._id === activeAlbum.creatorId"-->
     <h5>{{activeAlbum.title}}</h5>
 
@@ -39,6 +39,9 @@
       },
       user() {
         return this.$store.state.user
+      },
+      album() {
+
       }
 
     },
