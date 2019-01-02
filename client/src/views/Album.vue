@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <PostForm></PostForm>
+    <PostForm v-if="activeAlbum[0].creatorId == user._id"></PostForm>
     <!-- v-if here -- v-if="user._id === activeAlbum.creatorId"-->
     <h5>{{activeAlbum.title}}</h5>
 
