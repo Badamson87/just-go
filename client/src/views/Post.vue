@@ -104,9 +104,6 @@
     width: 43vw;
     padding-left: 1rem
   }
-<<<<<<< HEAD
-=======
 
   /* .owner {} */
->>>>>>> 8378d6e02997dd6bc7fdc6052613ce39b67b0346
 </style>
