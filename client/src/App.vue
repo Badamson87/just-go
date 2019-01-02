@@ -2,8 +2,7 @@
   <div id="app">
     <div id="nav" class="mb-5">
       <nav class="navbar navbar-expand-sm navbar-muted bg-muted navColor">
-        <img src="../public/assets/world.png" class="icon">
-        <a class="navbar-brand headerFont" href="#/">just go</a>
+        <a class="navbar-brand headerFont" href="#/"><img src="../public/assets/world.png" class="icon">just go</a>
         <!-- <a><img class="navbar-brand" src="/public/assets/just-go-logo.png"></a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
