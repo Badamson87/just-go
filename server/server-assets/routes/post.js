@@ -74,7 +74,7 @@ router.get('/:id', (req, res, next) => {
 
 // Get all posts
 router.get('/', (req, res, next) => {
-  Post.find({})
+  Post.find({ isBucketlist: false })
     .then(data => {
       res.send(data)
     })
