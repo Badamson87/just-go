@@ -101,7 +101,7 @@ router.get('/album/:id', (req, res, next) => {
 // add a clone
 
 router.post('/clone', (req, res, next) => {
-  Post.findById(req.body.id)
+  Post.findById(req.body.payload.postId)
     .exec((err, post) => {
       if (err) {
         console.log(err)
@@ -111,6 +111,9 @@ router.post('/clone', (req, res, next) => {
       clone._doc._id = mongoose.Types.ObjectId()
       clone._doc.creatorId = req.session.uid
       clone._doc.albumId = req.body.albumId
+      clone._doc.location = req.body.payload.postData.location
+      clone._doc.creatorName = req.body.payload.postData.creatorName
+      clone._doc.title = req.body.payload.postData.title
       clone.isNew = true
       clone.save(err => {
         if (err) {

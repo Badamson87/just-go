@@ -91,7 +91,7 @@
           postData: this.post
         }
         console.log(payload)
-        this.$store.dispatch('addToBucket', { payload })
+        this.$store.dispatch('addToBucket', { payload, albumId })
       }
       // editPost() {
       //   this.$store.dispatch('editPost', postId)
