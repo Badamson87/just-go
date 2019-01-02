@@ -25,7 +25,7 @@ let schema = new Schema({
   creatorName: { type: String, required: true },
   flags: [flag],
   location: { type: String, required: true },
-  albumId: { type: ObjectId, ref: "Album" },
+  albumId: { type: ObjectId, ref: "Album", required: true },
   isPrivate: { type: Boolean, required: true, default: false },
 }, { timestamps: true })
 

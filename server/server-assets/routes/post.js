@@ -102,26 +102,29 @@ router.get('/album/:id', (req, res, next) => {
 
 router.post('/clone', (req, res, next) => {
   Post.findById(req.body.payload.postId)
-    .exec((err, post) => {
-      if (err) {
-        console.log(err)
-        res.status(400).send(err)
-      }
+    .then(post => {
       let clone = post
-      clone._doc._id = mongoose.Types.ObjectId()
+      clone._id = mongoose.Types.ObjectId()
       clone._doc.creatorId = req.session.uid
-      clone._doc.albumId = req.body.albumId
+      clone._doc.albumId = mongoose.Types.ObjectId(req.body.albumId)
       clone._doc.location = req.body.payload.postData.location
       clone._doc.creatorName = req.body.payload.postData.creatorName
       clone._doc.title = req.body.payload.postData.title
       clone.isNew = true
-      clone.save(err => {
-        if (err) {
-          console.log(err)
-          return res.status(400).send(err)
-        }
-        res.send(clone)
-      })
+      Post.create(clone)
+        .then(newPost => {
+          res.send(newPost)
+        })
+        .catch(err => {
+          res.status(500).send(err.message)
+        })
+      // clone.save(err => {
+      //   if (err) {
+      //     console.log(err)
+      //     return res.status(400).send(err)
+      //   }
+      //   res.send(clone)
+      // })
     })
 })
 
