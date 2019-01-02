@@ -1,17 +1,17 @@
 <template>
   <div class="userDash container">
-    <h1>Welcome to your Dashboard</h1>
+    <h1 class="mgBottom">Welcome to your Dashboard</h1>
     <div class="row">
-      <div class="col-5">
+      <div class="col-6">
         <UserInfo></UserInfo>
       </div>
-      <div class="col-5">
+      <div class="col-6">
         <AlbumForm></AlbumForm>
         <PostForm></PostForm>
       </div>
     </div>
     <h5>My Albums</h5>
-    <Albums></Albums>
+    <Albums class="mgBottom"></Albums>
 
     <bucketlistform></bucketlistform>
     <h5>My Bucket Lists</h5>
@@ -50,5 +50,9 @@
 <style>
   body {
     background-color: #d3e6ec;
+  }
+
+  .mgBottom {
+    margin-bottom: 5vh;
   }
 </style>

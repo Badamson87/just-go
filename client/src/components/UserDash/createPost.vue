@@ -15,7 +15,7 @@
         <textarea class="form-control" type="text" placeholder="Description" v-model="formData.description"></textarea>
         <!-- change back to type=file and then use base 64 encoding accept="image/*"  -->
         <input class="form-control" type="text" v-model="formData.image" placeholder="Image URL">
-        <button type="submit" class="btn btn-danger">Create</button>
+        <button type="submit" class="btn mt-1 btn-sm btn-danger">Create</button>
       </div>
     </form>
   </div>

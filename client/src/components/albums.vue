@@ -5,8 +5,8 @@
         <router-link :to="{name: 'album', params: {albumId: album._id}}">
           <h6 class="card-title">{{album.title}}</h6>
           <img src="">
-          <button class="btn btn-info" @click="deleteAlbum(album)">Delete</button>
         </router-link>
+        <button class="icon" @click="deleteAlbum(album)"><i class="far fa-trash-alt"></i></button>
       </div>
     </div>
   </div>
@@ -53,5 +53,11 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap
+  }
+
+  .icon {
+    cursor: pointer;
+    background-color: rgba(240, 248, 255, 0);
+    border-color: rgba(240, 248, 255, 0);
   }
 </style>
