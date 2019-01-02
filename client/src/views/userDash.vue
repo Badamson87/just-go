@@ -1,5 +1,5 @@
 <template>
-  <div class="userDash container-fluid">
+  <div class="userDash container">
     <h1>Welcome to your Dashboard</h1>
     <div class="row">
       <div class="col-5">
@@ -39,7 +39,7 @@
       AlbumForm,
       PostForm,
       UserInfo,
-      Albums, 
+      Albums,
       bucketlistform,
       BucketLists
     }
@@ -49,6 +49,6 @@
 
 <style>
   body {
-    background-color: lightblue
+    background-color: #d3e6ec;
   }
 </style>
