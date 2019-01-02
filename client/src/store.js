@@ -137,8 +137,7 @@ export default new Vuex.Store({
         })
     },
     addToBucket({ commit, dispatch }, payload) {
-      debugger
-      api.post('posts/clone', payload)
+      api.post('posts/clone/', payload)
         .then(res => {
           console.log(res)
           dispatch('getBL')
