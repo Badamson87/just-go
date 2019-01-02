@@ -5,8 +5,8 @@
       <div class="form-group">
         <label for="selectedAlbum">Create Post</label>
 
-        <select class="form-control" v-model="formData.albumId" id="selectedAlbum">
-          <option v-for="album in albums" :key="albums._id" v-bind:value="album._id">Title Here</option>
+        <select class="form-control" v-model="selectedAlbum" id="selectedAlbum">
+          <option v-for="album in albums" :key="albums._id" v-bind:value="album">{{album.title}}</option>
         </select>
 
         <input class="form-control" type="text" placeholder="Title" v-model="formData.title">
@@ -26,13 +26,12 @@
     name: 'PostForm',
     data() {
       return {
+        selectedAlbum: {},
         formData: {
           title: '',
           location: '',
           description: '',
-          image: '',
-          albumId: '',
-          // creatorName: this.user.name
+          image: ''
         }
       }
     },
@@ -40,16 +39,27 @@
       albums() {
         return this.$store.state.albums
       },
+      // activeAlbum() {
+      //   return this.$store.state.activeAlbum
+      // },
       user() {
         return this.$store.state.user
       }
 
     },
     methods: {
+      test() { console.log('working') },
+      setActiveAlbum(album) {
+        debugger
+        this.$store.commit('setActiveAlbum', album)
+      },
       createPost() {
+        this.formData.creatorName = this.user.name
+        this.formData.albumName = this.selectedAlbum.title
+        this.formData.albumId = this.selectedAlbum._id
         this.$store.dispatch('createPost', this.formData)
         event.target.reset()
-      }
+      },
     }
   }
 
