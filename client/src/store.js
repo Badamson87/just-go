@@ -109,6 +109,7 @@ export default new Vuex.Store({
         // @ts-ignore
         .then(res => {
           dispatch('getPostsByAlbumId', postData.albumId)
+          router.push({ name: 'album' })
         })
     },
 

@@ -17,8 +17,10 @@
       <div class="col-6">
         <div class="row">
           <div class="col-12 owner">
+
+
             <!-- <button @click="editPost(post._id)" class="btn btn-warning">Edit</button> -->
-            <button @click="deletePost(post._id)" class="btn btn-danger">Delete</button>
+            <button v-if="post.creatorId == user._id" @click="deletePost(post._id)" class="btn btn-danger">Delete</button>
           </div>
           <div class="col-12 visitor">
             <div class="dropdown">
@@ -78,12 +80,15 @@
       },
       bucketLists() {
         return this.$store.state.bucketLists
+      },
+      user() {
+        return this.$store.state.user
       }
 
     },
     methods: {
       deletePost() {
-        this.$store.dispatch('deletePost', this.postId)
+        this.$store.dispatch('deletePost', this.post)
       },
       addToBucket(albumId) {
         let payload = {
