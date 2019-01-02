@@ -137,7 +137,7 @@ export default new Vuex.Store({
         })
     },
     addToBucket({ commit, dispatch }, payload) {
-      api.post('/clone' + payload)
+      api.post('posts/clone/', payload)
         .then(res => {
           console.log(res)
           dispatch('getBL')
@@ -164,7 +164,7 @@ export default new Vuex.Store({
     addAlbum({ commit, dispatch }, albumData) {
       api.post('albums', albumData)
         .then(res => {
-          // commit('setAlbums', res.data)
+          commit('setAlbums', res.data)
           dispatch('getAlbums', res.data)
         })
     },

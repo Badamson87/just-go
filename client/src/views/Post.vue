@@ -85,18 +85,22 @@
       deletePost() {
         this.$store.dispatch('deletePost', this.postId)
       },
-    },
-    addToBucket(albumId) {
-      let payload = {
-        postId: this.post._id,
-        postData: this.postData
+      addToBucket(albumId) {
+        let payload = {
+          postId: this.post._id,
+          postData: this.post
+        }
+        console.log(payload)
+        this.$store.dispatch('addToBucket', { payload, albumId })
       }
-      console.log(payload)
-      this.$store.dispatch('addToBucket', { payload })
+      // editPost() {
+      //   this.$store.dispatch('editPost', postId)
+      // },
+
     },
-    // editPost() {
-    //   this.$store.dispatch('editPost', postId)
-    // },
+
+
+
     components: {
       comments
     }

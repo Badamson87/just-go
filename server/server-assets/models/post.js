@@ -22,10 +22,10 @@ let schema = new Schema({
   ratings: [rating],
   image: [{ type: String, required: true }],
   creatorId: { type: ObjectId, ref: "User", required: true },
-  // name: { type: String, ref: "User" },
+  creatorName: { type: String, required: true },
   flags: [flag],
   location: { type: String, required: true },
-  albumId: { type: ObjectId, ref: "Album", required: true },
+  albumId: { type: ObjectId, ref: "Album" },
   isPrivate: { type: Boolean, required: true, default: false },
 }, { timestamps: true })
 
