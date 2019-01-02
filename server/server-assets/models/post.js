@@ -27,6 +27,7 @@ let schema = new Schema({
   location: { type: String, required: true },
   albumId: { type: ObjectId, ref: "Album", required: true },
   isPrivate: { type: Boolean, required: true, default: false },
+  isBucketlist: { type: Boolean, required: true, default: false }
 }, { timestamps: true })
 
 schema.pre('remove', function (next) {
