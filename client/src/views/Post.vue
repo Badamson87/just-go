@@ -18,28 +18,25 @@
         <div class="row">
           <div class="col-12 owner">
 
+            <img class="image" :src="post.image">
 
             <!-- <button @click="editPost(post._id)" class="btn btn-warning">Edit</button> -->
             <button v-if="post.creatorId == user._id" @click="deletePost(post._id)" class="btn btn-danger">Delete</button>
-          </div>
-          <div class="col-12 visitor">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">Add to bucket
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList._id)"
-                  :albumData="album" v-bind:value="bucketList._id">{{bucketList.title}}</p>
+            <div class="col-12 visitor">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Add to
+                  Bucket
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList._id)"
+                    :albumData="album" v-bind:value="bucketList._id">{{bucketList.title}}</p>
+                </div>
               </div>
             </div>
-
-            <button class="btn btn-info" @click="">Album</button>
-            <button class="btn btn-info" @click="">Follow</button>
           </div>
-
         </div>
 
-        <img class="image" :src="post.image">
       </div>
     </div>
     <div class="row mt-5">
@@ -84,7 +81,6 @@
       user() {
         return this.$store.state.user
       }
-
     },
     methods: {
       deletePost() {
