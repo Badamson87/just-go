@@ -110,13 +110,10 @@
     width: 43vw;
     padding-left: 1rem
   }
-<<<<<<< HEAD
-=======
 
   .action {
     cursor: pointer;
   }
->>>>>>> eb1a138423f7e075b34bb392864675b9b7619de3
 
   /* .owner {} */
 </style>
