@@ -110,6 +110,7 @@ router.post('/clone', (req, res, next) => {
       clone._doc.location = req.body.payload.postData.location
       clone._doc.creatorName = req.body.payload.postData.creatorName
       clone._doc.title = req.body.payload.postData.title
+      clone._doc.isBucketlist = true
       clone.isNew = true
       Post.create(clone)
         .then(newPost => {
