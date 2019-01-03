@@ -19,7 +19,7 @@
         <h6 class="col-12 commentSpacing mt-3">{{comment.creatorName}}</h6>
         <!-- need to change creatorId to user-> userName -->
         <p class="col-12 commentSpacing">{{comment.description}}</p>
-        <button class="icon" @click="deleteComment(comment)"><i class="far fa-trash-alt"></i></button>
+        <button v-if="activePost.creatorId == user._id" class="icon" @click="deleteComment(comment)"><i class="far fa-trash-alt"></i></button>
       </div>
     </div>
   </div>

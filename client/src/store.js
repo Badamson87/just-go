@@ -200,7 +200,6 @@ export default new Vuex.Store({
     //get comments for one specific post
     // @ts-ignore
     getComments({ commit, dispatch }, postId) {
-      debugger
       api.get('comments/' + postId)
         .then(res => {
           console.log('comments', res.data)
