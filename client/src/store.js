@@ -164,10 +164,10 @@ export default new Vuex.Store({
 
     //albums
     // @ts-ignore
-    getAlbums({ commit, dispatch }, userId) {
-      api.get('albums/user/' + userId)
+    getAlbums({ commit, dispatch }, authorId) {
+      api.get('albums/user/' + authorId)
         .then(res => {
-          console.log('albums: ', res)
+          console.log('albums: ', res.data)
           commit('setAlbums', res.data)
         })
     },
