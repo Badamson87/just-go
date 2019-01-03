@@ -90,6 +90,12 @@ export default new Vuex.Store({
           commit('setPost', res.data)
         })
     },
+    getUpdatedPost({ commit, dispatch }, post) {
+      api.get('posts/' + post._id)
+        .then(res => {
+          commit('setPost', res.data)
+        })
+    },
     // @ts-ignore
     getAllPosts({ commit, dispatch }) {
       api.get('posts/')
@@ -115,6 +121,12 @@ export default new Vuex.Store({
         .then(res => {
           dispatch('getPostsByAlbumId', postData.albumId)
           router.push({ name: 'album' })
+        })
+    },
+    editPost({ commit, dispatch }, postData) {
+      api.put("posts/" + postData._id, postData)
+        .then(res => {
+          dispatch('getUpdatedPost', postData)
         })
     },
 
@@ -160,6 +172,7 @@ export default new Vuex.Store({
         })
     },
     getAlbums2({ commit, dispatch }, id) {
+
       api.get('albums/user/' + id)
         .then(res => {
           console.log('albums: ', res.data)

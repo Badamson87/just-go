@@ -19,9 +19,14 @@
         }
       }
     },
-    computed: {},
+    computed: {
+      user() {
+        return this.$store.state.user
+      }
+    },
     methods: {
       addAlbum() {
+        this.newAlbum.authorName = this.user.name
         this.$store.dispatch('addAlbum', this.newAlbum)
         event.target.reset()
       }

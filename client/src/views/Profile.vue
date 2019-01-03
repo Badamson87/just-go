@@ -1,7 +1,7 @@
 <template>
   <div class="profile container-fluid">
     <!-- need to be able to pull in user info from postid? -->
-    {{authorId}}
+    {{albums.authorName}}
     <div class="row">
       <div v-for="album in albums" class="col-3" :key="album._id">
         <div class="card m-1">
@@ -22,17 +22,17 @@
       }
     },
     mounted() {
-      return this.$store.dispatch('getAlbums2', this.authorId)
+      return this.$store.dispatch('getAlbums', this.authorId)
     },
     computed: {
-      // albums() {
-      //   return this.$store.state.activeAlbum
-      // }
+      albums() {
+        return this.$store.state.activeAlbum
+      }
     },
     methods: {
-      // setActiveAlbum(a) {
-      //   this.$store.commit('setActiveAlbum', a)
-      // }
+      setActiveAlbum(a) {
+        this.$store.commit('setActiveAlbum', a)
+      }
     },
     components: {
     },
