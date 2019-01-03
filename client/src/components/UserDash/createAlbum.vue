@@ -26,7 +26,6 @@
     },
     methods: {
       addAlbum() {
-        debugger
         this.newAlbum.authorName = this.user.name
         this.$store.dispatch('addAlbum', this.newAlbum)
         event.target.reset()

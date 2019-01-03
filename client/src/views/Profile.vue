@@ -22,7 +22,6 @@
       }
     },
     mounted() {
-      debugger
       return this.$store.dispatch('getAlbums', this.authorId)
     },
     computed: {
