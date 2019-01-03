@@ -1,6 +1,8 @@
 <template>
   <div class="container-fluid">
-    <PostForm v-if="albums.authorId == user._id"></PostForm>
+    <div v-if="activeAlbum.length">
+      <PostForm v-if="activeAlbum[0].creatorId == user._id"></PostForm>
+    </div>
     <!-- v-if="albums.authorId == user._id" -->
     <!-- <PostForm v-else-if="albums.authorId == user._id && albums.length < 0"></PostForm> -->
     <h5>{{albums.title}}</h5>
@@ -30,18 +32,19 @@
 
       }
     },
-    mounted() {
+    created() {
       return this.$store.dispatch('getPostsByAlbumId', this.albumId)
     },
-    created() {
-      return this.$store.dispatch('getAlbums2', this.albumId)
+    mounted() {
+      return this.$store.dispatch('getAlbums2', this.user._id)
     },
     computed: {
+      user() {
+
+        return this.$store.state.user
+      },
       activeAlbum() {
         return this.$store.state.activeAlbum
-      },
-      user() {
-        return this.$store.state.user
       },
       albums() {
         return this.$store.state.albums
