@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
-    <div v-if="activeAlbum.length">
-      <PostForm v-if="activeAlbum[0].creatorId == user._id"></PostForm>
+    <div>
+      <PostForm v-if="activeAlbum.length == 0 || activeAlbum[0].creatorId == user._id"></PostForm>
     </div>
     <!-- v-if="albums.authorId == user._id" -->
     <!-- <PostForm v-else-if="albums.authorId == user._id && albums.length < 0"></PostForm> -->

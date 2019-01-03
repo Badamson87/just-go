@@ -150,6 +150,7 @@ export default new Vuex.Store({
     //albums
     // @ts-ignore
     getAlbums({ commit, dispatch }, userId) {
+      debugger
       api.get('albums/user/' + userId)
         .then(res => {
           console.log('albums: ', res)
@@ -157,6 +158,7 @@ export default new Vuex.Store({
         })
     },
     getAlbums2({ commit, dispatch }, id) {
+
       api.get('albums/user/' + id)
         .then(res => {
           console.log('albums: ', res.data)
