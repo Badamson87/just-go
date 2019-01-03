@@ -5,17 +5,20 @@
       <img class="userImg" :src="user.image" />
     </div>
     <h5 class="mt-4">{{user.name}}</h5>
+    <input type="file" @change="onFileChanged">
+    <button @click="onUpload">Upload!</button>
 
   </div>
 </template>
 
 <!-- need user info get requests -->
+
 <script>
   export default {
     name: 'UserInfo',
     data() {
       return {
-
+        selectedFile: null
       }
     },
     computed: {
@@ -23,7 +26,14 @@
         return this.$store.state.user
       }
     },
-    methods: {}
+    methods: {
+      onFileChanged(event) {
+        this.selectedFile = event.target.files[0]
+      },
+      onUpload() {
+        axios.post('my-domain.com/file-upload', this.selectedFile)
+      }
+    }
   }
 
 </script>
