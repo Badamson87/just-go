@@ -20,8 +20,9 @@
 
             <img class="image" :src="post.image">
 
-            <!-- <button @click="editPost(post._id)" class="btn btn-warning">Edit</button> -->
+            <button v-if="post.creatorId == user._id" @click="editPost(post._id)" class="btn btn-warning">Edit</button>
             <button v-if="post.creatorId == user._id" @click="deletePost(post._id)" class="btn btn-danger">Delete</button>
+
             <div class="col-12 visitor">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -57,8 +58,10 @@
     // components: {
     //   comments
     // },
+
     data() {
       return {
+
       }
     },
     mounted() {
