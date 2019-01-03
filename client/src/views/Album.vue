@@ -1,10 +1,9 @@
 <template>
   <div class="container-fluid">
-    <PostForm v-if="activeAlbum[0].creatorId == user._id"></PostForm>
-    <PostForm v-else-if="album.authorId == user._id && album.length > 0"></PostForm>
-
-    <h5>{{album.title}}</h5>
-
+    <PostForm v-if="albums.authorId == user._id"></PostForm>
+    <!-- v-if="albums.authorId == user._id" -->
+    <!-- <PostForm v-else-if="albums.authorId == user._id && albums.length < 0"></PostForm> -->
+    <h5>{{albums.title}}</h5>
     <div class="row">
       <div v-for="post in activeAlbum" class="col-3 my-3">
         <div class="card cardSize" @click="setActivePost(post)">
@@ -34,7 +33,7 @@
     mounted() {
       return this.$store.dispatch('getPostsByAlbumId', this.albumId)
     },
-    mounted() {
+    created() {
       return this.$store.dispatch('getAlbums2', this.albumId)
     },
     computed: {
@@ -44,7 +43,7 @@
       user() {
         return this.$store.state.user
       },
-      album() {
+      albums() {
         return this.$store.state.albums
       }
     },
@@ -55,6 +54,14 @@
       setActivePost(p) {
         this.$store.commit('setPost', p)
       }
+    },
+    watch: {
+      // activeAlbum(val) {
+      //   this.$store.dispatch('getPostsByAlbumId', this.albumId)
+      // },
+      // albums(val) {
+      //   this.$store.dispatch('getAlbums2', this.albumId)
+      // }
     },
     props: ["albumId"],
     components: {
