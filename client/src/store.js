@@ -68,6 +68,9 @@ export default new Vuex.Store({
 
   },
   actions: {
+    dataUri({ commit, dispatch }) {
+      //what do we put here???
+    },
 
     //posts
     // @ts-ignore

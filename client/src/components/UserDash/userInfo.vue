@@ -6,7 +6,6 @@
         <vue-base64-file-upload class="v1" accept="image/png,image/jpeg" image-class="v1-image" input-class="v1-image"
           :max-size="customImageMaxSize" @size-exceeded="onSizeExceeded" @file="onFile" @load="onLoad" />
       </div>
-
     </div>
     <div class="userInfo card cardBorder">
       <p>User Info</p>
@@ -14,8 +13,6 @@
         <img class="userImg" :src="user.image" />
       </div>
       <h5 class="mt-4">{{user.name}}</h5>
-      <!-- <input type="file" @change="onFileChanged">
-        <button @click="onUpload">Upload!</button> -->
     </div>
   </div>
 </template>
@@ -53,9 +50,6 @@
       onSizeExceeded(size) {
         alert(`Image ${size}Mb size exceeds limits of ${this.customImageMaxSize}Mb!`);
       }
-      // onUpload() {
-      //   axios.post('my-domain.com/file-upload', this.selectedFile)
-      // }
     },
     components: {
       VueBase64FileUpload
@@ -75,6 +69,6 @@
   }
 
   .v1 {
-    size: 200px
+    background-size: 20px
   }
 </style>
