@@ -200,16 +200,21 @@ export default new Vuex.Store({
     //get comments for one specific post
     // @ts-ignore
     getComments({ commit, dispatch }, postId) {
+      debugger
       api.get('comments/' + postId)
         .then(res => {
-          // let payload = {
-          //   postId: postId,
-          //   comments: res.data
-          // }
+          console.log('comments', res.data)
           commit('setComment', res.data)
         })
     },
-    setActivePost() { },
+    deleteComment({ commit, dispatch }, commentData) {
+
+      api.delete('comments/' + commentData._id)
+        .then(res => {
+          console.log('delorted')
+          dispatch('getComments', commentData.postId)
+        })
+    },
 
     // auth 
     // @ts-ignore

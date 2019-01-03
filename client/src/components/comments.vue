@@ -19,6 +19,7 @@
         <h6 class="col-12 commentSpacing mt-3">{{comment.creatorName}}</h6>
         <!-- need to change creatorId to user-> userName -->
         <p class="col-12 commentSpacing">{{comment.description}}</p>
+        <button class="icon" @click="deleteComment(comment)"><i class="far fa-trash-alt"></i></button>
       </div>
     </div>
   </div>
@@ -72,6 +73,9 @@
         // this.newComment.postId = this.postId
         // this.$store.dispatch('addComment', this.newComment);
         // this.newComment = { title: "", authorId: "", postId: "", description: "", userName: "" }
+      },
+      deleteComment(commentData) {
+        this.$store.dispatch('deleteComment', commentData)
       }
 
     },
