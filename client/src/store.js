@@ -168,7 +168,7 @@ export default new Vuex.Store({
       api.post('albums', albumData)
         .then(res => {
           commit('setAlbums', res.data)
-          dispatch('getAlbums', res.data)
+          dispatch('getAlbums2', res.data.authorId)
         })
     },
     // @ts-ignore
@@ -200,7 +200,6 @@ export default new Vuex.Store({
     //get comments for one specific post
     // @ts-ignore
     getComments({ commit, dispatch }, postId) {
-      debugger
       api.get('comments/' + postId)
         .then(res => {
           console.log('comments', res.data)
@@ -208,7 +207,6 @@ export default new Vuex.Store({
         })
     },
     deleteComment({ commit, dispatch }, commentData) {
-
       api.delete('comments/' + commentData._id)
         .then(res => {
           console.log('delorted')
