@@ -36,9 +36,9 @@ router.get('/:postId', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
   Comment.findById(req.params.id)
     .then(comment => {
-      if (!comment.creatorId.equals(req.session.uid)) {
-        return res.status(401).send("Access Denied!")
-      }
+      // if (!comment.creatorId.equals(req.session.uid)) {
+      //   return res.status(401).send("Access Denied!")
+      // }
       comment.remove(err => {
         if (err) {
           console.log(err)

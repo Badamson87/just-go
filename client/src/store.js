@@ -207,7 +207,7 @@ export default new Vuex.Store({
         })
     },
     deleteComment({ commit, dispatch }, commentData) {
-
+      debugger
       api.delete('comments/' + commentData._id)
         .then(res => {
           console.log('delorted')
