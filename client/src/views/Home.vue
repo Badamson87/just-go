@@ -3,29 +3,10 @@
     <div class="row">
       <div class="col-12">
         <input type="text" v-model="search" class="form-control" placeholder="search posts" />
-        <li v-show="'search'.includes(searchInLowerCase)">
+        <li v-show="'search'.includes(filteredPosts)">
         </li>
 
-        <!-- <h5>All Posts</h5>
-          <div class="row">
-            <div class="allPosts col-12">
-              <div v-for="post in filteredPosts" :key="post._id" class="col-3 my-4">
-                <div class="card">
-                  <div class="card-body borderBox">
-                    <div @click="setActivePost(post)">
-                      <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
-                        <h5>{{post.title}}</h5>
-                        <img class=" img-fluid" :src="post.image">
-                        <p class="card-text">{{post.rating}}</p>
-                      </router-link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div> -->
+
 
         <div class="row">
           <div v-for="post in filteredPosts" class="col-3 my-3">
@@ -62,12 +43,9 @@
       },
       filteredPosts: function () {
         return this.posts.filter((post) => {
-          return post.title.match(this.search)
+          return post.title.toLowerCase().includes(this.search.toLowerCase())
         })
       },
-      searchInLowerCase() {
-        return this.search.toLowerCase();
-      }
     },
     methods: {
       setActivePost(p) {
