@@ -7,6 +7,8 @@ import router from './router'
 import Axios from 'axios'
 
 Vue.use(Vuex)
+// Vue.use(Axios)
+
 
 let auth = Axios.create({
   baseURL: '//localhost:3000/auth/',
