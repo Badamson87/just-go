@@ -25,7 +25,7 @@ export default new Vuex.Store({
     albums: [],
     activePost: {},
     posts: [],
-    activeAlbum: {},
+    activeAlbum: [],
     bucketLists: [],
     comments: [],
   },
@@ -157,7 +157,7 @@ export default new Vuex.Store({
     getAlbums2({ commit, dispatch }, id) {
       api.get('albums/user/' + id)
         .then(res => {
-          console.log('albums: ', res)
+          console.log('albums: ', res.data)
           commit('setAlbums', res.data)
         })
     },

@@ -16,7 +16,7 @@
     </div>
     <div v-for="comment in comments">
       <div class="commentStyle row">
-        <h6 class="col-12 commentSpacing">{{comment.creatorName}}</h6>
+        <h6 class="col-12 commentSpacing mt-3">{{comment.creatorName}}</h6>
         <!-- need to change creatorId to user-> userName -->
         <p class="col-12 commentSpacing">{{comment.description}}</p>
       </div>
@@ -60,7 +60,6 @@
     },
     methods: {
       addComment() {
-        debugger
         let payload = {
           title: this.commentData.title,
           description: this.commentData.description,
@@ -84,8 +83,8 @@
 
 <style>
   .commentStyle {
-    background-color: #CAEBF2;
-    border: solid 1px rgb(235, 235, 235)
+    background-color: #ffffff;
+    border: solid 1px rgb(227, 227, 227)
   }
 
   .commentSpacing {

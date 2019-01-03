@@ -1,11 +1,9 @@
 <template>
   <div class="container-fluid">
-    <PostForm v-if="activeAlbum[0].creatorId == user._id || {}"></PostForm>
-    <!-- v-if here -- v-if="user._id === activeAlbum.creatorId"-->
-    <div v-else>
-      <h4>You have no posts in this album</h4>
-    </div>
-    <h5>{{activeAlbum.title}}</h5>
+    <PostForm v-if="activeAlbum[0].creatorId == user._id"></PostForm>
+    <PostForm v-else-if="album.authorId == user._id && album.length > 0"></PostForm>
+
+    <h5>{{album.title}}</h5>
 
     <div class="row">
       <div v-for="post in activeAlbum" class="col-3 my-3">
@@ -36,6 +34,9 @@
     mounted() {
       return this.$store.dispatch('getPostsByAlbumId', this.albumId)
     },
+    mounted() {
+      return this.$store.dispatch('getAlbums2', this.albumId)
+    },
     computed: {
       activeAlbum() {
         return this.$store.state.activeAlbum
@@ -43,6 +44,9 @@
       user() {
         return this.$store.state.user
       },
+      album() {
+        return this.$store.state.albums
+      }
     },
     methods: {
       deletePost(postData) {
