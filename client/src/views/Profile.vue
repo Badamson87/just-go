@@ -1,11 +1,13 @@
 <template>
   <div class="profile container-fluid">
+    <h1>Profile Page</h1>
     <!-- need to be able to pull in user info from postid? -->
-    {{albums.authorName}}
+    <h4>{{albums[0].authorName}}</h4>
     <div class="row">
       <div v-for="album in albums" class="col-3" :key="album._id">
         <div class="card m-1">
           <h6 class="card-title">{{album.title}}</h6>
+          <p></p>
           <img src="">
         </div>
       </div>
@@ -26,7 +28,7 @@
     },
     computed: {
       albums() {
-        return this.$store.state.activeAlbum
+        return this.$store.state.albums
       }
     },
     methods: {

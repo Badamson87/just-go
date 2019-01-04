@@ -5,6 +5,8 @@ import Vuex from 'vuex'
 import router from './router'
 // @ts-ignore
 import Axios from 'axios'
+// @ts-ignore
+import Swal from 'sweetalert2';
 
 Vue.use(Vuex)
 // Vue.use(Axios)
@@ -81,6 +83,7 @@ export default new Vuex.Store({
           commit("setPost", res.data)
           dispatch('getPostsByAlbumId', res.data.albumId)
           // dispatch("editAlbum", res.data.data.albumId)
+
         })
     },
     // @ts-ignore
@@ -164,10 +167,10 @@ export default new Vuex.Store({
 
     //albums
     // @ts-ignore
-    getAlbums({ commit, dispatch }, userId) {
-      api.get('albums/user/' + userId)
+    getAlbums({ commit, dispatch }, authorId) {
+      api.get('albums/user/' + authorId)
         .then(res => {
-          console.log('albums: ', res)
+          console.log('albums: ', res.data)
           commit('setAlbums', res.data)
         })
     },

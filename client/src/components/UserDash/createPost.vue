@@ -22,6 +22,7 @@
 </template>
 
 <script>
+  import Swal from 'sweetalert2'
   export default {
     name: 'PostForm',
     data() {
@@ -58,7 +59,11 @@
         this.formData.albumId = this.selectedAlbum._id
         this.$store.dispatch('createPost', this.formData)
         event.target.reset()
+        this.alert()
       },
+      alert() {
+        Swal('Success!')
+      }
     }
   }
 

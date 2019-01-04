@@ -20,7 +20,7 @@
         <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
           <p>{{post.albumName}}</p>
         </router-link>
-        <router-link :to='{name:"profile"}'>
+        <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
           <h4>{{post.creatorName}}</h4>
         </router-link>
 
@@ -129,7 +129,6 @@
 
       },
       editPost() {
-        debugger
         this.$store.dispatch('editPost', this.postData)
         this.edit = false
       }
