@@ -8,7 +8,7 @@
         <button class="btn btn-info" @click="addBio">Add Bio</button>
         <div class="userInfo card cardBorder">
           <h5 class="mt-4">{{user.name}}</h5>
-          <img class="v1-image" :src="image" alt="">
+          <!-- <img class="v1-image" :src="user.image" alt=""> -->
         </div>
       </div>
     </div>
