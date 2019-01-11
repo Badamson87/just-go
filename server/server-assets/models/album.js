@@ -4,6 +4,7 @@ let ObjectId = Schema.Types.ObjectId
 let schemaName = 'Album'
 
 let Comment = require('./comment.js')
+let Post = require('./post.js')
 
 let schema = new Schema({
   title: { type: String, required: true },
@@ -23,6 +24,16 @@ schema.pre('remove', function (next) {
   // @ts-ignore
   Promise.all([
     Comment.deleteMany({ albumId: this._id }),
+  ])
+    .then(() => next())
+    .catch(err => next(err))
+})
+
+
+schema.pre('remove', function (next) {
+  // @ts-ignore
+  Promise.all([
+    Post.deleteMany({ albumId: this._id }),
   ])
     .then(() => next())
     .catch(err => next(err))
