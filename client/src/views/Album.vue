@@ -80,6 +80,7 @@
     margin-bottom: 4vh;
     object-fit: contain;
     max-height: 600px;
+
   }
 
   .cardSize {

@@ -6,12 +6,10 @@
         <li v-show="'search'.includes(filteredPosts)">
         </li>
 
-
-
         <div class="card-columns">
-          
+
           <div v-for="post in filteredPosts" class="">
-          <div class="card" @click="setActivePost(post)">
+            <div class="card" @click="setActivePost(post)">
               <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
                 <img class="imgSize" :src='post.image'>
               </router-link>
