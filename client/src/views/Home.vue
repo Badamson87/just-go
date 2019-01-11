@@ -8,10 +8,10 @@
 
 
 
-        <div class="row">
-          <div v-for="post in filteredPosts" class="col-3 my-3">
+        <div class="card-columns">
           
-            <div class="card cardSize" @click="setActivePost(post)">
+          <div v-for="post in filteredPosts" class="">
+          <div class="card" @click="setActivePost(post)">
               <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
                 <img class="imgSize" :src='post.image'>
               </router-link>

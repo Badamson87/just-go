@@ -76,10 +76,10 @@
 
 <style>
   .imgSize {
-    width: 100%;
+    max-width: 100%;
     margin-bottom: 4vh;
     object-fit: contain;
-    max-height: 25vh;
+    max-height: 600px;
   }
 
   .cardSize {
