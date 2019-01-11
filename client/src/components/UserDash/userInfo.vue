@@ -2,14 +2,16 @@
   <div>
     <div class="">
       <h2>Upload file</h2>
-      <div>
-        <vue-base64-file-upload :disable-preview="true" class="v1-image" accept="image/png,image/jpeg" image-class="v1-image"
-          input-class="v1-image" :max-size="customImageMaxSize" @size-exceeded="onSizeExceeded" @file="onFile" @load="onLoad" />
-      </div>
-      <button class="btn btn-info" @click="addBio">Add Bio</button>
-      <div class="userInfo card cardBorder">
-        <h5 class="mt-4">{{user.name}}</h5>
-        <img class="v1-image" :src="user.image" alt="">
+      <div class="position">
+        <div>
+          <vue-base64-file-upload :disable-preview="true" class="v1-image" accept="image/png,image/jpeg" image-class="v1-image"
+            input-class="v1-image" :max-size="customImageMaxSize" @size-exceeded="onSizeExceeded" @file="onFile" @load="onLoad" />
+        </div>
+        <button class="btn btn-info" @click="addBio">Add Bio</button>
+        <div class="userInfo card cardBorder">
+          <h5 class="mt-4">{{user.name}}</h5>
+          <img class="v1-image" :src="user.image" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -67,7 +69,8 @@
   }
 
   .v1-image {
-    max-width: 30vw;
-    max-height: 30vh;
+    object-fit: fill;
+    max-width: 30%;
+    max-height: 30%;
   }
 </style>
