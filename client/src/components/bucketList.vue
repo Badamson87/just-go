@@ -3,9 +3,11 @@
         <div v-for="bucketList in bucketLists" :albumId="bucketList._id" class="col-3" :key="bucketList._id">
             <div class="card m-1">
                 <router-link :to="{name: 'album', params: {albumId: bucketList._id}}">
-                    <h6 class="card-title">{{bucketList.title}}</h6>
-                    <button class="btn btn-info" @click="deleteBL(bucketList)">Delete</button>
+                    <h5 class="card-title">{{bucketList.title}}</h5>
+                    <i class="fas fa-globe-americas fa-5x"></i>
+                    <!-- <button class="btn btn-info" @click="deleteBL(bucketList)">Delete</button> -->
                 </router-link>
+                <button class="icon" @click="deleteBL(bucketList)"><i class="far fa-trash-alt"></i></button>
             </div>
         </div>
     </div>

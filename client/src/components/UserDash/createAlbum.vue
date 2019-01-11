@@ -27,6 +27,7 @@
     methods: {
       addAlbum() {
         this.newAlbum.authorName = this.user.name
+        // this.newAlbum.image = "http://cdn.onlinewebfonts.com/svg/img_304578.png"
         this.$store.dispatch('addAlbum', this.newAlbum)
         event.target.reset()
       }

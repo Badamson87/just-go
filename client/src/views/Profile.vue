@@ -1,8 +1,7 @@
 <template>
   <div class="profile container-fluid">
-    <h1>Profile Page</h1>
     <!-- need to be able to pull in user info from postid? -->
-    <h4>{{albums[0].authorName}}</h4>
+    <h3>{{albums[0].authorName}}'s Albums</h3>
     <div class="row">
       <div v-for="album in albums" class="col-3" :key="album._id">
         <router-link :to="{name: 'album', params: {albumId: album._id}}">
