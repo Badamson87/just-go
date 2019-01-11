@@ -20,7 +20,7 @@
         <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
           <p>{{post.albumName}}</p>
         </router-link>
-        <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
+        <router-link :to='{name:"profile"}'>
           <h4>{{post.creatorName}}</h4>
         </router-link>
 

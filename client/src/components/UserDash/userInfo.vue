@@ -3,16 +3,16 @@
     <div class="">
       <h2>Upload file</h2>
       <div>
-        <vue-base64-file-upload class="v1" accept="image/png,image/jpeg" image-class="v1-image" input-class="v1-image"
+        <vue-base64-file-upload class="v1-image" accept="image/png,image/jpeg" image-class="v1-image" input-class="v1-image"
           :max-size="customImageMaxSize" @size-exceeded="onSizeExceeded" @file="onFile" @load="onLoad" />
+        <div class="userInfo card cardBorder">
+          <button class="btn btn-info" @click="addBio">Add Bio</button>
+          <h5 class="mt-4">{{user.name}}</h5>
+          <!-- <div class="imgCard">
+            <img class="userImg v1-image" :src="v1-image" />
+          </div> -->
+        </div>
       </div>
-    </div>
-    <div class="userInfo card cardBorder">
-      <p>User Info</p>
-      <div class="imgCard">
-        <img class="userImg" :src="user.image" />
-      </div>
-      <h5 class="mt-4">{{user.name}}</h5>
     </div>
   </div>
 </template>
@@ -54,6 +54,9 @@
     components: {
       VueBase64FileUpload
     },
+    addBio() {
+
+    }
   }
 
 </script>
@@ -63,12 +66,12 @@
     border: solid rgb(159, 158, 158) 1px;
   }
 
-  .userImg {
-    height: 20vh;
-    width: 20vh;
+  .userInfo {
+    max-height: 100px;
+    max-width: 40vw;
   }
 
-  .v1 {
-    background-size: 20px
+  .v1-image {
+    width: 40vw;
   }
 </style>
