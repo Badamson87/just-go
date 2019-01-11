@@ -148,8 +148,8 @@
 
 <style scoped>
   .image {
-    width: 43vw;
-    padding-left: 1rem
+    width: 75%;
+    padding-left: 1rem;
   }
 
   .action {
