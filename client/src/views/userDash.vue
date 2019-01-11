@@ -11,12 +11,14 @@
       </div>
     </div>
 
-    <h5>My Albums</h5>
-    <Albums class="mgBottom"></Albums>
+    <div class="uDMargin">
+      <h5 class="uDTitle ">My Albums</h5>
+      <Albums class="mgBottom"></Albums>
 
-    <bucketlistform></bucketlistform>
-    <h5>My Bucket Lists</h5>
-    <BucketLists></BucketLists>
+      <bucketlistform></bucketlistform>
+      <h5 class="uDTitle ">My Bucket Lists</h5>
+      <BucketLists></BucketLists>
+    </div>
   </div>
 
 </template>
@@ -56,6 +58,15 @@
 
   .mgBottom {
     margin-bottom: 5vh;
-    margin-top: 8vh;
+
+  }
+
+  .uDTitle {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .uDMargin {
+    margin-top: 15vh;
   }
 </style>
