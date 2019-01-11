@@ -15,7 +15,8 @@ let schema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   image: { type: String, default: "https://kooledge.com/assets/default_medium_avatar-57d58da4fc778fbd688dcbc4cbc47e14ac79839a9801187e42a796cbd6569847.png" },
-  created: { type: Number, required: true, default: Date.now() }
+  created: { type: Number, required: true, default: Date.now() },
+  bio: { type: String },
 })
 
 

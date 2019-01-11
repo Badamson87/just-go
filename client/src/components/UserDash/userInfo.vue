@@ -5,9 +5,10 @@
       <div>
         <vue-base64-file-upload class="v1-image" accept="image/png,image/jpeg" image-class="v1-image" input-class="v1-image"
           :max-size="customImageMaxSize" @size-exceeded="onSizeExceeded" @file="onFile" @load="onLoad" />
+        <button class="btn btn-info" @click="addBio">Add Bio</button>
         <div class="userInfo card cardBorder">
-          <button class="btn btn-info" @click="addBio">Add Bio</button>
           <h5 class="mt-4">{{user.name}}</h5>
+          <!-- <img class="v1-image" :src="user.image" alt=""> -->
         </div>
       </div>
     </div>
@@ -39,18 +40,18 @@
       },
 
       onLoad(dataUri) {
-        this.$store.dispatch('saveUpload', { dataUri }); // data-uri string
+        this.$store.dispatch('saveUpload', { image: dataUri }); // data-uri string
       },
 
       onSizeExceeded(size) {
         alert(`Image ${size}Mb size exceeds limits of ${this.customImageMaxSize}Mb!`);
+      },
+      addBio() {
+
       }
     },
     components: {
       VueBase64FileUpload
-    },
-    addBio() {
-
     }
   }
 
@@ -63,10 +64,10 @@
 
   .userInfo {
     max-height: 100px;
-    max-width: 40vw;
+    max-width: 30vw;
   }
 
   .v1-image {
-    width: 40vw;
+    width: 30vw;
   }
 </style>
