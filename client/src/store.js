@@ -137,6 +137,7 @@ export default new Vuex.Store({
 
     // @ts-ignore
     createBL({ commit, dispatch }, bucketListData) {
+      debugger
       api.post('albums', bucketListData)
         .then(res => {
           console.log("bucketlist :", res.data)

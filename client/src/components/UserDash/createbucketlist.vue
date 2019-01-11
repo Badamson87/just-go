@@ -19,9 +19,14 @@
                 }
             }
         },
-        computed: {},
+        computed: {
+            user() {
+                return this.$store.state.user
+            }
+        },
         methods: {
             addBucketList() {
+                this.newBucketList.authorName = this.user.name
                 this.$store.dispatch('createBL', this.newBucketList)
             }
         }
