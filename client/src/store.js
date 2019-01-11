@@ -6,7 +6,7 @@ import router from './router'
 // @ts-ignore
 import Axios from 'axios'
 // @ts-ignore
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
 
 Vue.use(Vuex)
 // Vue.use(Axios)
@@ -70,7 +70,7 @@ export default new Vuex.Store({
 
   },
   actions: {
-    dataUri({ commit, dispatch }) {
+    saveUpload({ commit, dispatch }, payload) {
       //what do we put here???
     },
 
@@ -79,6 +79,7 @@ export default new Vuex.Store({
     createPost({ commit, dispatch }, formData) {
       api.post('posts', formData)
         .then(res => {
+          Swal({ title: 'Success!', timer: 2000 })
           console.log(res.data)
           commit("setPost", res.data)
           dispatch('getPostsByAlbumId', res.data.albumId)
