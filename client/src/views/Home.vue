@@ -2,13 +2,13 @@
   <div class="Home container-fluid">
     <div class="row">
       <div class="col-12">
-        <input type="text" v-model="search" class="form-control" placeholder="search posts" />
+        <input type="text" v-model="search" class="form-control mb-5" placeholder="search posts" />
         <li v-show="'search'.includes(filteredPosts)">
         </li>
 
 
 
-        <div class="card-columns">
+        <div class="card-columns count">
           
           <div v-for="post in filteredPosts" class="">
           <div class="card" @click="setActivePost(post)">
@@ -77,5 +77,8 @@
   .imgBox {
     height: 25px;
     width: 25px;
+  }
+  .count {
+    column-count: 5;
   }
 </style>
