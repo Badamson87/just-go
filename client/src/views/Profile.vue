@@ -5,13 +5,14 @@
     <h4>{{albums[0].authorName}}</h4>
     <div class="row">
       <div v-for="album in albums" class="col-3" :key="album._id">
-        <div class="card m-1">
-          <h6 class="card-title">{{album.title}}</h6>
-          <p></p>
-          <img src="">
-        </div>
+        <router-link :to="{name: 'album', params: {albumId: album._id}}">
+          <div class="card m-1">
+            <h6 class="card-title">{{album.title}}</h6>
+          </div>
+        </router-link>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
