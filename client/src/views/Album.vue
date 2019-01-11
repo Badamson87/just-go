@@ -9,9 +9,9 @@
 
     <!-- <h5 else>Album Title</h5> -->
 
-    <div class="row">
-      <div v-for="post in activeAlbum" class="col-3 my-3">
-        <div class="card cardSize" @click="setActivePost(post)">
+    <div class="card-columns count">
+      <div v-for="post in activeAlbum" class="">
+        <div class="card" @click="setActivePost(post)">
           <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
             <img class="card-img-top" :src='post.image'>
           </router-link>
