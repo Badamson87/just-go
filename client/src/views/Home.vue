@@ -17,6 +17,7 @@
               </router-link>
               <p>{{post.title}}</p>
               <p>{{post.location}}</p>
+              <p>{{post.creatorName}}</p>
             </div>
           </div>
         </div>
