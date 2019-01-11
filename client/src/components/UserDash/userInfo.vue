@@ -67,6 +67,7 @@
   }
 
   .v1-image {
-    width: 30vw;
+    max-width: 30vw;
+    max-height: 30vh;
   }
 </style>
