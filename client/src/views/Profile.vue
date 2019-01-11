@@ -6,7 +6,9 @@
       <div v-for="album in albums" class="col-3" :key="album._id">
         <router-link :to="{name: 'album', params: {albumId: album._id}}">
           <div class="card m-1">
-            <h6 class="card-title">{{album.title}}</h6>
+            <h5 class="card-title">{{album.title}}</h5>
+            <i class="far fa-images fa-5x"></i>
+
           </div>
         </router-link>
       </div>
