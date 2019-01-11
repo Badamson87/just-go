@@ -7,8 +7,8 @@
           <vue-base64-file-upload :disable-preview="true" class="v1-image" accept="image/png,image/jpeg" image-class="v1-image"
             input-class="v1-image" :max-size="customImageMaxSize" @size-exceeded="onSizeExceeded" @file="onFile" @load="onLoad" />
         </div>
-        <button class="btn btn-info" @click="addBio">Add Bio</button>
-        <div class="userInfo card cardBorder">
+        <!-- <button class="btn btn-info" @click="addBio">Add Bio</button> -->
+        <div class="userInfo">
           <h5 class="mt-4">{{user.name}}</h5>
           <img class="v1-image" :src="user.image" alt="">
         </div>
@@ -70,7 +70,7 @@
 
   .v1-image {
     object-fit: fill;
-    max-width: 30%;
+    max-width: 62%;
     max-height: 30%;
   }
 </style>

@@ -10,6 +10,7 @@
         <PostForm></PostForm>
       </div>
     </div>
+
     <h5>My Albums</h5>
     <Albums class="mgBottom"></Albums>
 
@@ -17,6 +18,7 @@
     <h5>My Bucket Lists</h5>
     <BucketLists></BucketLists>
   </div>
+
 </template>
 
 
@@ -54,5 +56,6 @@
 
   .mgBottom {
     margin-bottom: 5vh;
+    margin-top: 8vh;
   }
 </style>
