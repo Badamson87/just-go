@@ -1,7 +1,7 @@
 <template>
   <div class="post container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-4">
         <div v-if="edit">
           <form @submit.prevent="editPost">
             <div class="form-group">
@@ -15,7 +15,7 @@
             </div>
           </form>
         </div>
-        <div v-else class="col-6">
+        <div v-else class="col-4">
           <h1>{{post.title}}</h1>
           <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
             <p>{{post.albumName}}</p>
@@ -37,24 +37,27 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-8">
         <div class="row">
           <div class="col-12 owner">
 
             <img class="image" :src="post.image">
+            <div class="row">
+              <div class="col m-1">
+                <button v-if="post.creatorId == user._id" @click="editToggle" class="btn btn-warning mx-2">Edit</button>
+                <button v-if="post.creatorId == user._id" @click="deletePost(post._id)" class="btn btn-danger mx-2">Delete</button>
+              </div>
 
-            <button v-if="post.creatorId == user._id" @click="editToggle" class="btn btn-warning">Edit</button>
-            <button v-if="post.creatorId == user._id" @click="deletePost(post._id)" class="btn btn-danger">Delete</button>
-
-            <div class="col-12 visitor">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">Add to
-                  Bucket
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList._id)"
-                    :albumData="bucketList" v-bind:value="bucketList._id">{{bucketList.title}}</p>
+              <div class="col-12 visitor">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Add to
+                    Bucket
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList._id)"
+                      :albumData="bucketList" v-bind:value="bucketList._id">{{bucketList.title}}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -67,7 +70,6 @@
           <!-- postId="post._id" -->
         </div>
       </div>
-
     </div>
   </div>
 </template>
