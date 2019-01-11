@@ -8,16 +8,11 @@
         <div class="userInfo card cardBorder">
           <button class="btn btn-info" @click="addBio">Add Bio</button>
           <h5 class="mt-4">{{user.name}}</h5>
-          <!-- <div class="imgCard">
-            <img class="userImg v1-image" :src="v1-image" />
-          </div> -->
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<!-- need user info get requests -->
 
 <script>
   import VueBase64FileUpload from 'vue-base64-file-upload';
@@ -44,7 +39,7 @@
       },
 
       onLoad(dataUri) {
-        dispatch(dataUri); // data-uri string
+        this.$store.dispatch('saveUpload', { dataUri }); // data-uri string
       },
 
       onSizeExceeded(size) {

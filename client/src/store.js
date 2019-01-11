@@ -70,7 +70,7 @@ export default new Vuex.Store({
 
   },
   actions: {
-    dataUri({ commit, dispatch }) {
+    saveUpload({ commit, dispatch }, payload) {
       //what do we put here???
     },
 
