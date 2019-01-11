@@ -58,12 +58,13 @@
         this.formData.albumName = this.selectedAlbum.title
         this.formData.albumId = this.selectedAlbum._id
         this.$store.dispatch('createPost', this.formData)
-        event.target.reset()
-        this.alert()
+        this.formData = {
+          title: '',
+          location: '',
+          description: '',
+          image: ''
+        }
       },
-      alert() {
-        Swal('Success!')
-      }
     }
   }
 
