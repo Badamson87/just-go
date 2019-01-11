@@ -20,8 +20,8 @@
         <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
           <p>{{post.albumName}}</p>
         </router-link>
-        <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
-          <h4>{{post.creatorName}}</h4>
+        <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'></router-link>
+        <h4>{{post.creatorName}}</h4>
         </router-link>
 
         <!-- <input v-if="postInfo.edit" v-model="postInfo.location" @blur="postInfo.edit = false" @keyup.enter="postInfo.edit=false"> -->
