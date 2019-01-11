@@ -1,7 +1,7 @@
 <template>
   <div class="comment container">
     <form @submit="addComment">
-      <div class="row">
+      <div class="row flex-end">
         <h5>Add Comment</h5>
       </div>
       <div class="row form-group">

@@ -1,42 +1,41 @@
 <template>
   <div class="post container">
     <div class="row">
-      <div v-if="edit">
-        <form @submit.prevent="editPost">
-          <div class="form-group">
-            <label for="post">Edit Post</label>
-            <input class="form-control" type="text" placeholder="Title" v-model="postData.title">
-            <input class="form-control" type="text" placeholder="Location" v-model="postData.location">
-            <!-- goelocation?? -->
-            <textarea class="form-control" type="text" placeholder="Description" v-model="postData.description"></textarea>
-            <!-- change back to type=file and then use base 64 encoding accept="image/*"  -->
-            <input class="form-control" type="text" v-model="postData.image" placeholder="Image URL">
-            <button type="submit" class="btn mt-1 btn-sm btn-danger">Save</button>
-          </div>
-        </form>
-      </div>
-      <div v-else class="col-6">
-        <h1>{{post.title}}</h1>
-        <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
-          <p>{{post.albumName}}</p>
-        </router-link>
-        <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
-          <h4>{{post.creatorName}}</h4>
-        </router-link>
+      <div class="col-3">
+        <div v-if="edit">
+          <form @submit.prevent="editPost">
+            <div class="form-group">
+              <label for="post">Edit Post</label>
+              <input class="form-control" type="text" placeholder="Title" v-model="postData.title">
+              <input class="form-control" type="text" placeholder="Location" v-model="postData.location">
+              <textarea class="form-control" type="text" placeholder="Description" v-model="postData.description"></textarea>
 
-        <!-- <input v-if="postInfo.edit" v-model="postInfo.location" @blur="postInfo.edit = false" @keyup.enter="postInfo.edit=false"> -->
-
-        <h4>{{post.location}}</h4>
-
-        <h4>{{post.rating}}</h4>
-        <div>
-          <p>{{post.description}}</p>
-
-          <!-- youll still have to handle your saving event -->
-          <!-- <input v-else type="text" name="" id="" v-model="post.description"> -->
+              <input class="form-control" type="text" v-model="postData.image" placeholder="Image URL">
+              <button type="submit" class="btn mt-1 btn-sm btn-danger">Save</button>
+            </div>
+          </form>
         </div>
+        <div v-else class="col-6">
+          <h1>{{post.title}}</h1>
+          <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
+            <p>{{post.albumName}}</p>
+          </router-link>
+          <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
+            <h4>{{post.creatorName}}</h4>
+          </router-link>
 
+          <!-- <input v-if="postInfo.edit" v-model="postInfo.location" @blur="postInfo.edit = false" @keyup.enter="postInfo.edit=false"> -->
 
+          <h4>{{post.location}}</h4>
+
+          <h4>{{post.rating}}</h4>
+          <div>
+            <p>{{post.description}}</p>
+
+            <!-- youll still have to handle your saving event -->
+            <!-- <input v-else type="text" name="" id="" v-model="post.description"> -->
+          </div>
+        </div>
       </div>
       <div class="col-6">
         <div class="row">
@@ -61,18 +60,15 @@
             </div>
           </div>
         </div>
-
       </div>
-    </div>
-
-    <div class="row mt-5">
-      <div class="col-12">
-        <comments v-bind:postId="post._id"></comments>
-        <!-- postId="post._id" -->
+      <div class="row">
+        <div class="col-12">
+          <comments v-bind:postId="post._id"></comments>
+          <!-- postId="post._id" -->
+        </div>
       </div>
+
     </div>
-
-
   </div>
 </template>
 
