@@ -15,9 +15,8 @@
               <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
                 <img class="imgSize" :src='post.image'>
               </router-link>
-              <p>{{post.title}}</p>
-              <p>{{post.location}}</p>
-              <p>{{post.creatorName}}</p>
+              <p class="textSpace">{{post.title}}</p>
+              <p class="textSpace">{{post.location}}</p>
             </div>
           </div>
         </div>
@@ -81,5 +80,13 @@
 
   .count {
     column-count: 5;
+  }
+
+  .textSpace {
+    margin-top: -16px;
+  }
+
+  .card:hover {
+    transform: scale(1.1);
   }
 </style>
