@@ -71,7 +71,11 @@ export default new Vuex.Store({
   },
   actions: {
     saveUpload({ commit, dispatch }, payload) {
-      //what do we put here???
+      debugger
+      api.put('users', payload)
+        .then(res => {
+          commit('setUser', res.data)
+        })
     },
 
     //posts

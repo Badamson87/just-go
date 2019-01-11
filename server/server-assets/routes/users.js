@@ -1,17 +1,21 @@
-// let router = require('express').Router()
-// let User = require('../models/album')
+let router = require('express').Router()
+let User = require('../models/user')
 
-// // find users by name
-// router.get('/:name', (req, res, next) => {
-//   User.find({ name: req.params.name })
-//     .then(data => {
-//       res.send(data)
-//     })
-//     .catch(err => {
-//       res.status(400).send(err)
-//     })
-// })
+// update user
+router.put('/', (req, res, next) => {
+  User.findById(req.session.uid)
+    .then(user => {
+      user.image = req.body.image
+      user.bio = req.body.bio
+      user.save()
+      delete user.password
+      res.send(user)
+    })
+    .catch(err => {
+      res.status(400).send(err)
+    })
+})
 
 
 
-// module.exports = router
+module.exports = router

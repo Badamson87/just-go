@@ -21,7 +21,7 @@ require('./server-assets/db/mlab-config')
 
 
 //REGISTER MIDDLEWEAR
-server.use(bp.json())
+server.use(bp.json({ limit: '3mb' }))
 server.use(bp.urlencoded({
   extended: true
 }))
@@ -55,8 +55,9 @@ server.use('/api/comments', commentRoutes)
 let postRoutes = require('./server-assets/routes/post')
 server.use('/api/posts', postRoutes)
 
-// let profileRoutes = require('./server-assets/routes/users')
-// server.use('/api/users', profileRoutes)
+let profileRoutes = require('./server-assets/routes/users')
+server.use('/api/users', profileRoutes)
+
 
 //Catch all
 server.get('*', (req, res, next) => {
