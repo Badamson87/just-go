@@ -6,15 +6,10 @@
         <li v-show="'search'.includes(filteredPosts)">
         </li>
 
-<<<<<<< HEAD
-        <div class="card-columns">
-
-=======
 
 
         <div class="card-columns count">
-          
->>>>>>> 6a259edddeedbc810763b8bcae8578041704a62c
+
           <div v-for="post in filteredPosts" class="">
             <div class="card" @click="setActivePost(post)">
               <router-link :to="{name: 'post', params: {postId: post._id, post: post}}">
@@ -83,6 +78,7 @@
     height: 25px;
     width: 25px;
   }
+
   .count {
     column-count: 5;
   }
