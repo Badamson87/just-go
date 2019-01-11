@@ -1,7 +1,7 @@
 <template>
   <div class="post container">
     <div class="row">
-      <div class="col-3">
+      <div class="col-12">
         <div v-if="edit">
           <form @submit.prevent="editPost">
             <div class="form-group">
