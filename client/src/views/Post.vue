@@ -29,7 +29,7 @@
               <div class="row">
                 <div class="col mini-box textHeight">
                   <router-link :to="{name: 'album', params: {albumId: post.albumId}}" class="col-6">
-                    <h5>Album: {{post.albumName}}</h5>
+                    <h5 v-if="!post.isBucketlist">Album: {{post.albumName}}</h5>
                   </router-link>
                 </div>
               </div>
@@ -57,7 +57,7 @@
       <div class="col-12 owner">
         <img class="image" :src="post.image">
         <div class="col-12 visitor">
-          <div class="dropdown">
+          <div class="dropdown" v-if="!post.isBucketlist">
             <button class="btn btn-sm dropdown-toggle icon" type="button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus-circle"> </i> Add post to bucket
               list
