@@ -57,7 +57,7 @@
 
 </script>
 
-<style>
+<style scoped>
   .allPosts {
     display: flex;
     flex-direction: row;
