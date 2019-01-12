@@ -63,7 +63,7 @@
 
   .userInfo {
     max-width: 90%;
-    max-height: 90px;
+    max-height: 40px;
   }
 
   .v1-image {
