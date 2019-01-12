@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="position">
+  <div class="position">
+    <div>
       <h5>{{user.name}}</h5>
     </div>
     <!-- <button class="btn btn-info" @click="addBio">Add Bio</button> -->
@@ -61,18 +61,18 @@
     border: solid rgb(159, 158, 158) 1px;
   }
 
-  .userInfo {
+  /* .userInfo {
     max-width: 80%;
     max-height: 40px;
-  }
+  } */
 
   .v1-image {
-    object-fit: fill;
-    max-width: 60%;
-    max-height: 40%;
+    width: 100%
+      /* max-width: 60%; */
+      /* max-height: 40%; */
   }
 
-  .position {
+  /* .position {
     max-width: 60%
-  }
+  }  */
 </style>
