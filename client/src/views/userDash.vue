@@ -40,7 +40,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Create a new album.</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Create a New Album</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -70,10 +70,11 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="example">Create a bucketlist.</h5>
+              <h5 class="modal-title" id="example">Create a Bucketlist</h5>
+              
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                  <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
               <bucketlistform></bucketlistform>

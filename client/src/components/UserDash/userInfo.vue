@@ -62,7 +62,7 @@
   }
 
   .userInfo {
-    max-width: 60%;
+    max-width: 80%;
     max-height: 40px;
   }
 
