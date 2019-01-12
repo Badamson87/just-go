@@ -70,4 +70,9 @@
   a {
     color: rgb(4, 4, 4);
   }
+
+  a:hover {
+    color: rgb(63, 63, 63);
+    text-decoration: none;
+  }
 </style>
