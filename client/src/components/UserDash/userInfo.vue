@@ -1,7 +1,7 @@
 <template>
   <div class="position">
     <div>
-      <h5>{{user.name}}</h5>
+      <h3>I see you {{user.name}}.... You look nice today.</h3>
     </div>
     <!-- <button class="btn btn-info" @click="addBio">Add Bio</button> -->
     <div class="userInfo">
