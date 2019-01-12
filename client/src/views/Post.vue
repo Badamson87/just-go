@@ -4,6 +4,7 @@
       <div class="col-12">
         <div v-if="edit">
           <form @submit.prevent="editPost">
+            <!-- this is a comment -->
             <div class="form-group">
               <label for="post">Edit Post</label>
               <input class="form-control" type="text" placeholder="Title" v-model="postData.title">
