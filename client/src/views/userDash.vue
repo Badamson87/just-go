@@ -8,6 +8,7 @@
       <div class="col-6">
         <AlbumForm></AlbumForm>
         <PostForm></PostForm>
+        <bucketlistform></bucketlistform>
       </div>
     </div>
 
@@ -15,7 +16,6 @@
       <h5 class="uDTitle ">My Albums</h5>
       <Albums class="mgBottom"></Albums>
 
-      <bucketlistform></bucketlistform>
       <h5 class="uDTitle ">My Bucket Lists</h5>
       <BucketLists></BucketLists>
     </div>
