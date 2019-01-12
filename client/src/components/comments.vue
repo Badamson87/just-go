@@ -1,12 +1,12 @@
 <template>
   <div class="comment container">
     <form @submit="addComment">
-      <div class="row flex-end">
+      <div class="row">
         <h5>Add Comment</h5>
       </div>
-      <div class="row form-group">
-        <textarea class="col-12 form-control" v-model="commentData.description" type="text" placeholder="Comment Here"></textarea>
-      </div>
+      <span class="row form-group d-block">
+        <textarea class="col-12 form-control d-block" v-model="commentData.description" type="text" placeholder="Comment Here"></textarea>
+      </span>
       <div class="row">
         <button class="btn btn-info" type="submit">Add Comment</button>
       </div>
