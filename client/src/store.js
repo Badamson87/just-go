@@ -165,6 +165,7 @@ export default new Vuex.Store({
     addToBucket({ commit, dispatch }, payload) {
       api.post('posts/clone/', payload)
         .then(res => {
+          Swal({ title: 'Success!', timer: 2000 })
           console.log(res)
           dispatch('getBL')
         })
