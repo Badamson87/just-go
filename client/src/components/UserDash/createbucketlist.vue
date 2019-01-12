@@ -1,6 +1,6 @@
 <template>
     <div class="bucketlistForm form-group">
-        <h5>Create Bucket List</h5>
+        <!-- <h5>Create Bucket List</h5> -->
         <form @submit.prevent="addBucketList">
             <input class="form-control" type="text" placeholder="Bucket List Name" v-model="newBucketList.title">
             <button class="btn btn-sm mt-1 btn-danger" type="submit">Create</button>
