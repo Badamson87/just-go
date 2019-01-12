@@ -16,21 +16,19 @@
           </form>
         </div>
         <div v-else class="col-4">
-          <h1>{{post.title}}</h1>
-          <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
-            <p>{{post.albumName}}</p>
-          </router-link>
           <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
             <h4>{{post.creatorName}}</h4>
           </router-link>
+          <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
+            <p>{{post.albumName}}</p>
+          </router-link>
+          <h1>{{post.title}}</h1>
+
 
           <!-- <input v-if="postInfo.edit" v-model="postInfo.location" @blur="postInfo.edit = false" @keyup.enter="postInfo.edit=false"> -->
 
-          <h4>{{post.location}}</h4>
-
-          <h4>{{post.rating}}</h4>
           <div>
-            <p>{{post.description}}</p>
+
 
             <!-- youll still have to handle your saving event -->
             <!-- <input v-else type="text" name="" id="" v-model="post.description"> -->
@@ -64,11 +62,11 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <comments v-bind:postId="post._id"></comments>
-          <!-- postId="post._id" -->
-        </div>
+      <div class="col-12">
+        <h4>{{post.location}}</h4>
+        <p>{{post.description}}</p>
+        <comments v-bind:postId="post._id"></comments>
+        <!-- postId="post._id" -->
       </div>
     </div>
   </div>

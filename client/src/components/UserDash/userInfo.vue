@@ -61,13 +61,13 @@
   }
 
   .userInfo {
+    max-width: 60%;
     max-height: 100px;
-    max-width: 30vw;
   }
 
   .v1-image {
     object-fit: fill;
-    max-width: 62%;
-    max-height: 30%;
+    max-width: 60%;
+    max-height: 40%;
   }
 </style>
