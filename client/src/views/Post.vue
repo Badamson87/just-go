@@ -68,8 +68,8 @@
             </div>
           </div>
         </div>
-        <h6 class="mt-4">{{post.title}}</h6>
-        <p>{{post.description}}</p>
+        <h4 class="mt-4">{{post.title}}</h4>
+        <h6 class="mb-5">{{post.description}}</h6>
       </div>
     </div>
 

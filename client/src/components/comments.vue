@@ -8,7 +8,7 @@
         <textarea class="col-12 form-control d-block" v-model="commentData.description" type="text" placeholder="Comment Here"></textarea>
       </span>
       <div class="row">
-        <button class="btn btn-info" type="submit">Add Comment</button>
+        <button class="btn btn-info" type="submit">Submit</button>
       </div>
     </form>
     <div class="row mt-3">
