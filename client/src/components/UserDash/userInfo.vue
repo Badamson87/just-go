@@ -62,17 +62,17 @@
   }
 
   .userInfo {
-    max-width: 90%;
-    max-height: 90px;
+    max-width: 60%;
+    max-height: 40px;
   }
 
   .v1-image {
     object-fit: fill;
-    max-width: 90%;
+    max-width: 60%;
     max-height: 40%;
   }
 
   .position {
-    max-width: 90%
+    max-width: 60%
   }
 </style>
