@@ -2,7 +2,6 @@
   <div class="post container">
     <div class="row">
       <div class="col-12">
-
         <div v-if="edit">
           <form @submit.prevent="editPost">
             <div class="form-group">
@@ -18,20 +17,31 @@
         </div>
 
         <div v-else class="bgColor">
-          <div class="col-6">
-            <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
-              <h3> {{post.creatorName}}</h3>
-            </router-link>
-          </div>
-          <div class="col-6">
-            <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
-              <h4> {{post.albumName}}</h4>
-            </router-link>
-          </div>
-          <div class="col-6">
-            <h4><i class="fas fa-map-marker-alt"></i> {{post.location}}</h4>
+
+          <div class="row">
+            <div class="col big-box">
+              <router-link :to='{name:"profile", params: {authorId: post.creatorId}}' class="col-6">
+                <h3> {{post.creatorName}}</h3>
+              </router-link>
+            </div>
+
+            <div class="col">
+              <div class="row">
+                <div class="col mini-box textHeight">
+                  <router-link :to="{name: 'album', params: {albumId: post.albumId}}" class="col-6">
+                    <h5>Album: {{post.albumName}}</h5>
+                  </router-link>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col mini-box">
+                  <h5><i class="fas fa-map-marker-alt"></i> {{post.location}}</h5>
+                </div>
+              </div>
+            </div>
 
           </div>
+
 
         </div>
       </div>
@@ -163,6 +173,10 @@
 
   .bgColor {
     background-color: #efefef85;
+  }
+
+  .textHeight {
+    height: 50px;
   }
 
   /* .owner {} */
