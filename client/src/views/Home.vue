@@ -16,7 +16,7 @@
                 <img class="imgSize" :src='post.image'>
               </router-link>
               <p class="textSpace">{{post.title}}</p>
-              <p class="textSpace">{{post.location}}</p>
+              <p class="textSpace"><i class="fas fa-map-marker-alt"></i> {{post.location}}</p>
             </div>
           </div>
         </div>
