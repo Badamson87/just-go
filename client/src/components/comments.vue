@@ -11,7 +11,7 @@
         <button class="btn btn-info" type="submit">Submit</button>
       </div>
     </form>
-    <div class="row mt-3">9
+    <div class="row mt-3">
       <h5>Comments</h5>
     </div>
     <div v-for="comment in comments">
