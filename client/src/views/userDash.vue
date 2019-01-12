@@ -6,17 +6,17 @@
         <UserInfo></UserInfo>
       </div>
       <div class="col-6">
-        <!-- <div class="col-6"> -->
-        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
-          Create Album
-        </button>
-        <!-- </div> -->
-        <!-- <div class="col-6"> -->
-        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#example">
-          Create BucketList
-        </button>
+        <div class="col-12 uDSpacing">
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+            Create Album
+          </button>
+          <!-- </div> -->
+          <!-- <div class="col-6"> -->
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#example">
+            Create BucketList
+          </button>
 
-        <!-- </div> -->
+        </div>
         <!-- Modal -->
 
         <PostForm></PostForm>
@@ -136,5 +136,11 @@
 
   .uDMargin {
     margin-top: 15vh;
+  }
+
+  .uDSpacing {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3vh;
   }
 </style>

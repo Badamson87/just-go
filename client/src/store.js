@@ -141,9 +141,9 @@ export default new Vuex.Store({
 
     // @ts-ignore
     createBL({ commit, dispatch }, bucketListData) {
-      debugger
       api.post('albums', bucketListData)
         .then(res => {
+          Swal({ title: 'Success!', timer: 2000 })
           console.log("bucketlist :", res.data)
           dispatch('getBL', res.data.authorId)
         })
@@ -191,6 +191,7 @@ export default new Vuex.Store({
     addAlbum({ commit, dispatch }, albumData) {
       api.post('albums', albumData)
         .then(res => {
+          Swal({ title: 'Success!', timer: 2000 })
           commit('setAlbums', res.data)
           dispatch('getAlbums2', res.data.authorId)
         })
