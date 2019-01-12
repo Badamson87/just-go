@@ -11,14 +11,16 @@ import Swal from 'sweetalert2'
 Vue.use(Vuex)
 // Vue.use(Axios)
 
+let production = !window.location.host.includes('localhost')
+let baseUrl = production ? "https://go-justgo.herokuapp.com/" : "//localhost:3000/"
 
 let auth = Axios.create({
-  baseURL: '//localhost:3000/auth/',
+  baseURL: baseUrl + "auth/",
   timeout: 6000,
   withCredentials: true
 })
 let api = Axios.create({
-  baseURL: '//localhost:3000/api/',
+  baseURL: baseUrl + "api/",
   timeout: 6000,
   withCredentials: true
 })
