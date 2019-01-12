@@ -17,6 +17,7 @@
         </div>
 
         <div v-else class="bgColor">
+<<<<<<< HEAD
 
           <div class="row">
             <div class="col big-box">
@@ -39,8 +40,26 @@
                 </div>
               </div>
             </div>
+=======
+          <!-- <div class="col-12"> -->
+            <div class="col-6">
+            <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
+              <h3> {{post.creatorName}}</h3>
+            </router-link></div>
+         
+          <div class="col-6 right">
+            <div class="col-6">
+            <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
+              <h4> {{post.albumName}}</h4>
+            </router-link>
+          </div>
+          <div class="col-6">
+            <h4><i class="fas fa-map-marker-alt"></i> {{post.location}}</h4>
+>>>>>>> 51f59cf281fe9aff37154f0fae443caf6647c2aa
 
           </div>
+          </div>
+        <!-- </div> -->
 
 
         </div>
@@ -173,6 +192,10 @@
 
   .bgColor {
     background-color: #efefef85;
+  }
+  .right {
+    display:flex;
+    justify-content: right;
   }
 
   .textHeight {

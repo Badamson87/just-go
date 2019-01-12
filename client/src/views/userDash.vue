@@ -1,20 +1,20 @@
 <template>
   <div class="userDash container">
-    <h1 class="mgBottom">Welcome to your Dashboard</h1>
+    <h1 class="mgBottom">Welcome {{user.name}} to your Dashboard</h1>
     <div class="row">
       <div class="col-6">
         <UserInfo></UserInfo>
       </div>
       <div class="col-6">
         <div class="col-12 uDSpacing">
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+          <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
             Create Album
-          </button>
+          </button> -->
           <!-- </div> -->
           <!-- <div class="col-6"> -->
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#example">
+          <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#example">
             Create BucketList
-          </button>
+          </button> -->
 
         </div>
         <!-- Modal -->
@@ -106,7 +106,11 @@
 
       }
     },
-    computed: {},
+    computed: {
+      user() {
+        return this.$store.state.user
+      }
+    },
     components: {
       AlbumForm,
       PostForm,
