@@ -16,13 +16,14 @@
           </form>
         </div>
         <div v-else class="col-4">
-          <h1>{{post.title}}</h1>
-          <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
-            <p>{{post.albumName}}</p>
-          </router-link>
           <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
             <h4>{{post.creatorName}}</h4>
           </router-link>
+          <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
+            <p>{{post.albumName}}</p>
+          </router-link>
+          <h1>{{post.title}}</h1>
+
 
           <!-- <input v-if="postInfo.edit" v-model="postInfo.location" @blur="postInfo.edit = false" @keyup.enter="postInfo.edit=false"> -->
 
