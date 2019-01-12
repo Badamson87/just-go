@@ -1,5 +1,7 @@
 <template>
   <div class="row">
+
+
     <div v-for="album in albums" @click="setActiveAlbum(album)" class="col-3" :key="album._id">
       <div class="card m-1">
         <router-link :to="{name: 'album', params: {albumId: album._id}}">

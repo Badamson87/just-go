@@ -6,18 +6,85 @@
         <UserInfo></UserInfo>
       </div>
       <div class="col-6">
-        <AlbumForm></AlbumForm>
+        <!-- <div class="col-6"> -->
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+          Create Album
+        </button>
+        <!-- </div> -->
+        <!-- <div class="col-6"> -->
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#example">
+          Create BucketList
+        </button>
+
+        <!-- </div> -->
+        <!-- Modal -->
+
         <PostForm></PostForm>
-        <bucketlistform></bucketlistform>
+
       </div>
+
     </div>
 
     <div class="uDMargin">
-      <h5 class="uDTitle ">My Albums</h5>
+
+      <div class="uDTitle">
+        <h5 class="uDTitle ">My Albums</h5>
+        <button type="button" class="icon" data-toggle="modal" data-target="#exampleModal">
+          <i class="fas fa-plus-circle"></i>
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create a new album.</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <AlbumForm></AlbumForm>
+              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
       <Albums class="mgBottom"></Albums>
 
-      <h5 class="uDTitle ">My Bucket Lists</h5>
+      <div class="uDTitle">
+        <h5 class="uDTitle ">My Bucket Lists</h5>
+        <!-- Button trigger modal -->
+        <button type="button" class="icon" data-toggle="modal" data-target="#example">
+          <i class="fas fa-plus-circle"></i>
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampl" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="example">Create a bucketlist.</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <bucketlistform></bucketlistform>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <BucketLists></BucketLists>
+
+
     </div>
   </div>
 
@@ -64,6 +131,7 @@
   .uDTitle {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
   }
 
   .uDMargin {
