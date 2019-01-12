@@ -18,12 +18,14 @@
         </div>
 
         <div v-else class="bgColor">
-          <div class="col-6">
+          <!-- <div class="col-12"> -->
+            <div class="col-6">
             <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
               <h3> {{post.creatorName}}</h3>
-            </router-link>
-          </div>
-          <div class="col-6">
+            </router-link></div>
+         
+          <div class="col-6 right">
+            <div class="col-6">
             <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
               <h4> {{post.albumName}}</h4>
             </router-link>
@@ -32,6 +34,8 @@
             <h4><i class="fas fa-map-marker-alt"></i> {{post.location}}</h4>
 
           </div>
+          </div>
+        <!-- </div> -->
 
         </div>
       </div>
@@ -163,6 +167,10 @@
 
   .bgColor {
     background-color: #efefef85;
+  }
+  .right {
+    display:flex;
+    justify-content: right;
   }
 
   /* .owner {} */
