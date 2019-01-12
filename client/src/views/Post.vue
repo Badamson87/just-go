@@ -21,7 +21,8 @@
           <div class="row">
             <div class="col big-box">
               <router-link :to='{name:"profile", params: {authorId: post.creatorId}}' class="col-6">
-                <h3> {{post.creatorName}}</h3>
+                <h3 v-if="!post.isBucketlist"> {{post.creatorName}}</h3>
+                <!-- <h3 v-else> </h3> -->
               </router-link>
             </div>
             <div class="col">
