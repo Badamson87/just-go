@@ -1,7 +1,8 @@
 <template>
   <div class="post container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-12">
+
         <div v-if="edit">
           <form @submit.prevent="editPost">
             <div class="form-group">
@@ -15,61 +16,65 @@
             </div>
           </form>
         </div>
-        <div v-else class="col-4">
-          <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
-            <h4>{{post.creatorName}}</h4>
-          </router-link>
-          <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
-            <p>{{post.albumName}}</p>
-          </router-link>
-          <h1>{{post.title}}</h1>
 
-
-          <!-- <input v-if="postInfo.edit" v-model="postInfo.location" @blur="postInfo.edit = false" @keyup.enter="postInfo.edit=false"> -->
-
-          <div>
-
-
-            <!-- youll still have to handle your saving event -->
-            <!-- <input v-else type="text" name="" id="" v-model="post.description"> -->
+        <div v-else class="bgColor">
+          <div class="col-6">
+            <router-link :to='{name:"profile", params: {authorId: post.creatorId}}'>
+              <h3> {{post.creatorName}}</h3>
+            </router-link>
           </div>
+          <div class="col-6">
+            <router-link :to="{name: 'album', params: {albumId: post.albumId}}">
+              <h4> {{post.albumName}}</h4>
+            </router-link>
+          </div>
+          <div class="col-6">
+            <h4><i class="fas fa-map-marker-alt"></i> {{post.location}}</h4>
+
+          </div>
+
         </div>
       </div>
-      <div class="col-8">
-        <div class="row">
-          <div class="col-12 owner">
+    </div>
 
-            <img class="image" :src="post.image">
-            <div class="row">
-              <div class="col m-1">
-                <button v-if="post.creatorId == user._id" @click="editToggle" class="btn btn-warning mx-2">Edit</button>
-                <button v-if="post.creatorId == user._id" @click="deletePost(post._id)" class="btn btn-danger mx-2">Delete</button>
-              </div>
 
-              <div class="col-12 visitor">
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Add to
-                    Bucket
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList._id)"
-                      :albumData="bucketList" v-bind:value="bucketList._id">{{bucketList.title}}</p>
-                  </div>
-                </div>
-              </div>
+
+    <div class="row">
+      <div class="col m-1">
+        <button v-if="post.creatorId == user._id" @click="editToggle" class="btn btn-sm mx-2 icon"><i class="far fa-edit"></i></button>
+        <button v-if="post.creatorId == user._id" @click="deletePost(post._id)" class="btn btn-sm icon mx-2"><i class="far fa-trash-alt"></i></button>
+      </div>
+      <!-- <input v-if="postInfo.edit" v-model="postInfo.location" @blur="postInfo.edit = false" @keyup.enter="postInfo.edit=false"> -->
+    </div>
+
+
+    <div class="row">
+      <div class="col-12 owner">
+        <img class="image" :src="post.image">
+        <div class="col-12 visitor">
+          <div class="dropdown">
+            <button class="btn btn-sm dropdown-toggle icon" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus-circle"> </i> Add post to bucket
+              list
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <p class="dropdown-item action" v-for="bucketList in bucketLists" @click="addToBucket(bucketList._id)"
+                :albumData="bucketList" v-bind:value="bucketList._id">{{bucketList.title}}</p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-12">
-        <h4>{{post.location}}</h4>
+        <h6 class="mt-4">{{post.title}}</h6>
         <p>{{post.description}}</p>
-        <comments v-bind:postId="post._id"></comments>
-        <!-- postId="post._id" -->
       </div>
     </div>
+
+
+    <div class="col-12">
+      <comments v-bind:postId="post._id"></comments>
+      <!-- postId="post._id" -->
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -154,6 +159,10 @@
 
   .action {
     cursor: pointer;
+  }
+
+  .bgColor {
+    background-color: #efefef85;
   }
 
   /* .owner {} */
